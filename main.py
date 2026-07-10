@@ -4,7 +4,7 @@ from notion.get_all_pages import get_all_pages
 pages = get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID)
 
 for page in pages:
-    print(page["properties"])
+    print(page)
     if page:
         break
 
