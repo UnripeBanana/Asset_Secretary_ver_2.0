@@ -12,24 +12,9 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     if not ticker:
         continue
 
-    stock_info = {
-        **get_naver_prop(ticker),
-        **get_yfinance_prop(ticker)
-    }
+    stock_info = get_naver_prop(ticker)
 
     update_stock_DB(page, stock_info)
-
-    history_rows.append({
-        "date": today,
-        "ticker": ticker,
-        "open": stock_info["open"],
-        "high": stock_info["high"],
-        "low": stock_info["low"],
-        "close": stock_info["price"],
-        "volume": stock_info["volume"]
-    })
-
-append_prices(history_rows)
 
 
 """
