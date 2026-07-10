@@ -6,12 +6,19 @@ from notion.get_all_pages import get_all_pages
 #-----------------------------------------
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
-    ticker = get_ticker(page)
-    if not ticker:
+    # 티커 데이터 추출
+    ticker_data = page["properties"]["티커"]["rich_text"]
+    if not ticker_data:
         continue
+    ticker = ticker_data[0]["plain_text"]
 
+    # 네이버증권에서 데이터 받아오기
     stock_info = get_naver_prop(ticker)
+
+    # 노션에 데이터 업로드
     update_stock_DB(page, stock_info)
+
+    # CSV에 데이터 업로드
 
 
 """
