@@ -1,14 +1,16 @@
 from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
 from notion.get_all_pages import get_all_pages
 
+get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID)
+
+"""
 pages = get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID)
 
 for page in pages:
     print(page)
     if page:
         break
-
-"""
+##########################
 domestic_stock_main(get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID))
 
     for page in pages:
