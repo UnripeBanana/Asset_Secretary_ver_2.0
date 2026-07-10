@@ -13,7 +13,6 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
         continue
 
     stock_info = get_naver_prop(ticker)
-
     update_stock_DB(page, stock_info)
 
 
