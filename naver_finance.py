@@ -2,6 +2,7 @@
 
 import requests            # 네이버 증권에서 데이터 받아오기
 
+# 국내주식 정보를 받아오기 위한 함수
 def put_ticker_to_get_naver_prop(ticker):
 
     # 네이버는 브라우저가 아닌 프로그램의 요청을 차단하는 경우가 있어서, 브라우저인 척 속이는 역할 수행
