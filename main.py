@@ -4,8 +4,6 @@ from notion.get_all_pages import get_all_pages
 #-----------------------------------------
 # 국내주식 종목 DB 업데이트
 #-----------------------------------------
-today = datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y-%m-%d")
-history_rows = []
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     ticker = get_ticker(page)
