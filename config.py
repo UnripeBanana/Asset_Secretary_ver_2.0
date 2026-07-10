@@ -6,5 +6,5 @@ import os
 NOTION_TOKEN = os.environ["NOTION_TOKEN"]
 
 # 국내주식 종목 DB 링크
-NOTION_PRICE_DB_ID = os.environ["NOTION_PRICE_DB_ID"]
+NOTION_DOMESTIC_STOCK_INFO_DB = os.environ["NOTION_DOMESTIC_STOCK_INFO_DB"]
 
