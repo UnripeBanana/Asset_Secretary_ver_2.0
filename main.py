@@ -1,25 +1,35 @@
 from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
 from notion.get_all_pages import get_all_pages
 
-# get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID)
+#-----------------------------------------
+# 국내주식 종목 DB 업데이트
+#-----------------------------------------
+today = datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y-%m-%d")
+history_rows = []
 
-# 네이버는 브라우저가 아닌 프로그램의 요청을 차단하는 경우가 있어서, 브라우저인 척 속이는 역할 수행
-headers = {
-    "User-Agent": "Mozilla/5.0"
-}
+for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
+    ticker = get_ticker(page)
+    if not ticker:
+        continue
 
-url = (
-    f"https://polling.finance.naver.com/api/realtime"
-    f"?query=SERVICE_ITEM:{ticker}"
-)
+    stock_info = {
+        **get_naver_prop(ticker),
+        **get_yfinance_prop(ticker)
+    }
 
-data = requests.get(
-    url,
-    headers=headers,
-    timeout=10 # 최대 10초까지만 기다리겠다는 의미.
-).json()
+    update_stock_DB(page, stock_info)
 
-item = data["result"]["areas"][0]["datas"][0]
+    history_rows.append({
+        "date": today,
+        "ticker": ticker,
+        "open": stock_info["open"],
+        "high": stock_info["high"],
+        "low": stock_info["low"],
+        "close": stock_info["price"],
+        "volume": stock_info["volume"]
+    })
+
+append_prices(history_rows)
 
 
 """
