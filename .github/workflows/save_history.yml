@@ -22,4 +22,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Save History
-        run: python3 history_main.py
+        run: python3 csv_main.py
