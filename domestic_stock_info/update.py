@@ -1,6 +1,7 @@
 from notion.client import notion # notion : 로그인 된 앱에 접근할 수 있도록 해주는 역할
 from notion.rich_text import rich_text
 from utils.day_log import today_is
+from domestic_stock_info.csv.get_max_min_nMonth import get_max_min_nMonth
 
 def update_domestic_stock_info_DB(page, domestic_stock_info):
 
@@ -11,6 +12,8 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     if domestic_stock_info["rf"] == "5":
         cv *= -1
         cr *= -1
+
+    
         
     krx_domestic_stock_info_naver_finance = {
         # KRX 시장 값을 반환
