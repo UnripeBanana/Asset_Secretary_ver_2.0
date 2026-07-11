@@ -37,3 +37,5 @@ def append_history(df, domestic_stock_info):
     
     df.loc[len(df)] = row
 
+    return df
+
