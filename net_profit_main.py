@@ -9,6 +9,6 @@ def net_profit(prop, profit):
         properties={
             "국내주식 수익": {"number": },
             "국내주식 배당금 수익": {"number": 10},
-            "업데이트 일시": {"number": 72000}
+            "업데이트 일시": rich_text(today_and_time_is())
         }
     )
