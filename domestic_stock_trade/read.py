@@ -1,4 +1,5 @@
 from notion.client import notion # notion : 로그인 된 앱에 접근할 수 있도록 해주는 역할
+from collections import defaultdict, deque
 
 def read_domestic_stock_trade(page):
 
@@ -6,7 +7,7 @@ def read_domestic_stock_trade(page):
 
 	trade = {
 		"page_id": page["id"],
-		"name": (props["종목명"]["select"]["name"] if props["종목명"]["select"] else None),
+		"ticker": (props["종목명"]["select"]["name"] if props["종목명"]["select"] else None),
 		"type": props["매수/매도"]["select"]["name"],
 		"date": props["날짜"]["date"]["start"],
 		"qty": props["수량"]["number"],
@@ -15,6 +16,14 @@ def read_domestic_stock_trade(page):
 	}
 	
 	return trade
+
+def group_by_ticker(trades):
+    grouped = defaultdict(list)
+
+    for trade in trades:
+        grouped[trade["ticker"]].append(trade)
+
+    return grouped
 	
 {'object': 'page', 'id': '0c36e5ae-e083-82aa-9ebd-81b77c0aeaaa', 'created_time': '2026-07-10T11:43:00.000Z', 'last_edited_time': '2026-07-10T11:43:00.000Z', 'created_by': 
  {'object': 'user', 'id': '6507eaf1-f105-4087-a20f-cb78ead8701b'}, 'last_edited_by': {'object': 'user', 'id': '6507eaf1-f105-4087-a20f-cb78ead8701b'}, 'cover': None, 'icon': None, 
