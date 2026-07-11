@@ -11,7 +11,9 @@ from trade.fifo import group_by_ticker, process_fifo
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
     # 각 페이지별로 데이터 읽기
-    
+    trades = []
+    trade = read_domestic_stock_trade(page)
+    trades.append(trade)
 
     # 읽은 데이터 fifo처리
 
