@@ -1,4 +1,4 @@
-name: Save Price History
+name: Update CSV
 
 on:
   workflow_dispatch:
