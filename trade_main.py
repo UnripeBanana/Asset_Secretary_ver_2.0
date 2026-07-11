@@ -23,6 +23,9 @@ for trades in groups.values():
 
 results = process_fifo(groups)
 
+# 노션에 데이터 업데이트
+
+
 
 """
 # 데이터 업데이트
