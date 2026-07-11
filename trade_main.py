@@ -7,7 +7,7 @@ from collections import defaultdict, deque
 # 국내주식 거래내역 DB 업데이트
 #-----------------------------------------
 from domestic_stock_trade.read import read_domestic_stock_trade
-from domestic_stock_trade.update import 
+#from domestic_stock_trade.update import 
 from trade.fifo import process_fifo
 
 # 각 페이지별로 데이터 읽기
