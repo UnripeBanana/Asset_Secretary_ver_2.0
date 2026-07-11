@@ -7,7 +7,7 @@ def read_domestic_stock_trade(page):
 		"ticker": (props["종목명"]["select"]["name"] if props["종목명"]["select"] else None),
 		"type": props["매수/매도"]["select"]["name"],
 		"date": props["날짜"]["date"]["start"],
-		"qty": props["수량"]["number"],
+		"qty": props["거래량"]["number"],
 		"price": props["단가"]["number"],
 		"amount": props["거래금액"]["formula"]["number"]
 	}
