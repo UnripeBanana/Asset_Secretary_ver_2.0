@@ -1,3 +1,5 @@
+from notion.client import notion # notion : 로그인 된 앱에 접근할 수 있도록 해주는 역할
+
 def read_domestic_stock_trade(page):
 
 	props = page["properties"]
@@ -7,6 +9,8 @@ def read_domestic_stock_trade(page):
 #'국내장 종목 DB': {'id': 'Z%3A%3C%3A', 'type': 'relation', 'relation': [{'id': 'ef06e5ae-e083-8235-9667-81042e23f60b'}], 'has_more': False}
 
 	relation_page_id = props["국내장 종목 DB"]["relation"][0]["id"]
+	relation_page = notion.pages.retrieve(relation_page_id)
+	print(relation_page)
 	
 	trade = {
 		"page_id": page["id"],
