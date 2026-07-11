@@ -17,13 +17,6 @@ def read_domestic_stock_trade(page):
 	
 	return trade
 
-def group_by_ticker(trades):
-    grouped = defaultdict(list)
-
-    for trade in trades:
-        grouped[trade["ticker"]].append(trade)
-
-    return grouped
 	
 {'object': 'page', 'id': '0c36e5ae-e083-82aa-9ebd-81b77c0aeaaa', 'created_time': '2026-07-10T11:43:00.000Z', 'last_edited_time': '2026-07-10T11:43:00.000Z', 'created_by': 
  {'object': 'user', 'id': '6507eaf1-f105-4087-a20f-cb78ead8701b'}, 'last_edited_by': {'object': 'user', 'id': '6507eaf1-f105-4087-a20f-cb78ead8701b'}, 'cover': None, 'icon': None, 
