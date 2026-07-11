@@ -30,8 +30,8 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         if page["properties"]["3개월_최저가_깃허브"]["number"] < min_3:
             min_3 = page["properties"]["3개월_최저가_깃허브"]["number"]
 
-    # 1년 최고가 최저가 계산
-    _12month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 3)
+    # 12개월 최고가 최저가 계산
+    _12month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 12)
     
     max_12 = _12month_max_min["high"]
     if domestic_stock_info["hv"] > max_12:
