@@ -12,18 +12,6 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     if domestic_stock_info["rf"] == "5":
         cv *= -1
         cr *= -1
-
-    """
-    def get_ticker(page):
-    ticker_data = page["properties"]["티커"]["rich_text"]
-    if not ticker_data:
-        return None
-    return ticker_data[0]["plain_text"]
-
-    '3개월_최저가_깃허브': {'id': 's%5Bc_', 'type': 'number', 'number': None}
-
-    page["properties"]["3개월_최저가_깃허브"]["number"]
-    """
     
     # 3개월 최고가 최저가 계산
     _3month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 3)
@@ -31,14 +19,14 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     max_3 = _3month_max_min["high"]
     if domestic_stock_info["hv"] > max_3:
         max_3 = domestic_stock_info["hv"]
-    if not page["properties"]["3개월_최고가_깃허브"]["number"]:
+    if page["properties"]["3개월_최고가_깃허브"]["number"]:
         if page["properties"]["3개월_최고가_깃허브"]["number"] > max_3:
             max_3 = page["properties"]["3개월_최고가_깃허브"]["number"]
 
     min_3 = _3month_max_min["low"]
     if domestic_stock_info["lv"] < min_3:
         min_3 = domestic_stock_info["lv"]
-    if not page["properties"]["3개월_최저가_깃허브"]["number"]:
+    if page["properties"]["3개월_최저가_깃허브"]["number"]:
         if page["properties"]["3개월_최저가_깃허브"]["number"] < min_3:
             min_3 = page["properties"]["3개월_최저가_깃허브"]["number"]
 
@@ -48,14 +36,14 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     max_12 = _12month_max_min["high"]
     if domestic_stock_info["hv"] > max_12:
         max_12 = domestic_stock_info["hv"]
-    if not page["properties"]["12개월_최고가_깃허브"]["number"]:
+    if page["properties"]["12개월_최고가_깃허브"]["number"]:
         if page["properties"]["12개월_최고가_깃허브"]["number"] > max_12:
             max_12 = page["properties"]["12개월_최고가_깃허브"]["number"]
 
     min_12 = _12month_max_min["low"]
     if domestic_stock_info["lv"] < min_12:
         min_12 = domestic_stock_info["lv"]
-    if not page["properties"]["12개월_최저가_깃허브"]["number"]:
+    if page["properties"]["12개월_최저가_깃허브"]["number"]:
         if page["properties"]["12개월_최저가_깃허브"]["number"] < min_12:
             min_12 = page["properties"]["12개월_최저가_깃허브"]["number"]
         
