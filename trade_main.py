@@ -20,7 +20,20 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
 results = process_fifo(groups)
 
 # 데이터 업데이트
+for ticker, result in results.items():
+    # 잔량 업데이트
+    for page_id, qty in result["remaining"].items():
+        update_trade_page(
+            page_id=page_id,
+            remaining=qty
+        )
 
+    # 실현수익 업데이트
+    for page_id, profit in result["profit_by_sell"].items():
+        update_trade_page(
+            page_id=page_id,
+            profit=profit
+        )
 
 
 
