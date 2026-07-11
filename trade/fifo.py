@@ -1,42 +1,45 @@
 from collections import deque
 
 def process_fifo(grouped_trades):
+    updates = {}
 
-    results = {}
-
-    for ticker, trades in grouped_trades.items(): # grouped_trades.item() : dict_items([('삼성전자', [{'page_id': '9446e5ae-e083-82af-83c7-81578d26b1bf', 'ticker': '삼성전자', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 349000, 'amount': 349000}])])
-
+    for ticker, trades in grouped_trades.items():
         queue = deque()
-
-        remaining = {}
-
-        profit_by_sell = {}
-
         realized_profit = 0
 
         for trade in trades:
+            page_id = trade["page_id"]
 
+            # 페이지 정보가 없으면 생성
+            if page_id not in updates:
+                updates[page_id] = {}
+
+            # -----------------
             # 매수
+            # -----------------
             if trade["type"] == "매수":
-
                 queue.append({
-                    "page_id": trade["page_id"],
+                    "page_id": page_id,
                     "qty": trade["qty"],
                     "price": trade["price"]
                 })
-                remaining[trade["page_id"]] = trade["qty"]
+                updates[page_id]["remaining"] = trade["qty"]
 
+            # -----------------
             # 매도
+            # -----------------
             else:
-
                 sell_qty = trade["qty"]
-
-                # 매도 페이지는 잔량이 항상 0
-                remaining[trade["page_id"]] = 0
-
                 sell_profit = 0
 
+                # 매도 페이지의 잔량은 항상 0
+                updates[page_id]["remaining"] = 0
+
                 while sell_qty > 0:
+                    if not queue:
+                        raise ValueError(
+                            f"{ticker}의 보유수량보다 많은 매도가 발생했습니다."
+                        )
 
                     oldest = queue[0]
 
@@ -50,21 +53,17 @@ def process_fifo(grouped_trades):
                     ) * matched
 
                     realized_profit += profit
-
                     sell_profit += profit
 
                     oldest["qty"] -= matched
                     sell_qty -= matched
-                    remaining[oldest["page_id"]] -= matched
+
+                    # 기존 매수 페이지 잔량 감소
+                    updates[oldest["page_id"]]["remaining"] -= matched
 
                     if oldest["qty"] == 0:
                         queue.popleft()
-                    profit_by_sell[trade["page_id"]] = sell_profit
-                    
-        results[ticker] = {
-            "remaining": remaining,
-            "profit_by_sell": profit_by_sell,
-            "profit": realized_profit
-        }
 
-    return results
+                updates[page_id]["profit"] = sell_profit
+
+    return updates
