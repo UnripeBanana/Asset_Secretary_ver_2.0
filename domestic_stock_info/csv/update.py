@@ -1,4 +1,5 @@
 from utils.day_log import today_is
+import pandas as pd
 
 def append_history(df, domestic_stock_info):
     row = {
