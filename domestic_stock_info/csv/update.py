@@ -18,6 +18,15 @@ def append_history(domestic_stock_info):
     }
 
     df = pd.read_csv(CSV_PATH)
+
+    # 같은 날짜 + 같은 티커 제거
+    df = df[
+        ~(
+            (df["date"] == row["date"]) &
+            (df["ticker"] == row["ticker"])
+        )
+    ]
+    
     df.loc[len(df)] = row
     df.to_csv(
         CSV_PATH,
