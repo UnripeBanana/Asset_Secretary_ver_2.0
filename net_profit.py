@@ -4,13 +4,14 @@ from notion.rich_text import rich_text
 from utils.day_log import today_and_time_is
 
 def net_profit(prop, profit):
+
+    domestic_stock_profit = profit if prop == "domestic_stock" else 0
+    domestic_stock_dividend_profit = profit if prop == "domestic_stock_dividend" else 0
+    
     notion.pages.create(
         parent={
             "database_id": NOTION_NET_PROFIT_DB_ID
         },
-        
-        domestic_stock_profit = profit if prop == "domestic_stock" else 0
-        domestic_stock_dividend_profit = profit if prop == "domestic_stock_dividend" else 0
         
         properties={
             "국내주식 수익": {"number": domestic_stock_profit},
