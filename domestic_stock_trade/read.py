@@ -10,7 +10,7 @@ def read_domestic_stock_trade(page):
 
 	relation_page_id = props["국내장 종목 DB"]["relation"][0]["id"]
 	relation_page = notion.pages.retrieve(relation_page_id)
-	print(relation_page)
+	print(relation_page["properties"])
 	
 	trade = {
 		"page_id": page["id"],
