@@ -4,7 +4,7 @@ import pandas as pd
 
 CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
 
-def get_max_min_nMonth(ticker: str, months: int) -> dict[str, int | None]:
+def get_high_low_nMonth(ticker: str, months: int) -> dict[str, int | None]:
     """
     특정 종목의 최근 N개월 최고가/최저가를 반환
     ticker : str 종목 코드 (예: "005930")
