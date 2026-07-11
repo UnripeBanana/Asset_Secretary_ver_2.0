@@ -9,6 +9,9 @@ from domestic_stock_info.data import get_domestic_stock_info
 from domestic_stock_info.update import update_domestic_stock_info_DB
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
+    
+    print(page["properties"])
+    
     # 티커 데이터 추출
     ticker = get_ticker(page)
     if not ticker:
