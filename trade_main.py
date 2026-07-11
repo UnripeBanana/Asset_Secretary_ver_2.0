@@ -8,7 +8,7 @@ from collections import defaultdict, deque
 #-----------------------------------------
 from domestic_stock_trade.read import read_domestic_stock_trade
 from domestic_stock_trade.update import 
-from trade.fifo import group_by_ticker, process_fifo
+from trade.fifo import process_fifo
 
 # 각 페이지별로 데이터 읽기
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
