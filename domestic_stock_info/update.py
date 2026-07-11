@@ -13,14 +13,16 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         cv *= -1
         cr *= -1
 
-    # 트레이딩, 3개월 최고가 최저가 계산
-    get_max_min_nMonth(domestic_stock_info[])
-        
-    return {
-        "high": int(df["high"].max()),
-        "low": int(df["low"].min())
-    }
-    
+    # 3개월 최고가 최저가 계산
+    _3month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 3)
+    max_3 = _3month_max_min["high"]
+    min_3 = _3month_max_min["low"]
+    if domestic_stock_info["nv"] > max_3:
+        max_3 = domestic_stock_info["nv"]
+    if domestic_stock_info["nv"] < min_3:
+        min_3 = domestic_stock_info["nv"]
+
+    # 1년 최고가 최저가 계산
         
     krx_domestic_stock_info_naver_finance = {
         # KRX 시장 값을 반환
