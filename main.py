@@ -17,7 +17,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
 
     # 노션에 데이터 업로드
-    update_stock_DB(page, stock_info)
+    update_domestic_stock_info_DB(page, stock_info)
 
     # CSV에 데이터 업로드
 
