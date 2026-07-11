@@ -5,17 +5,10 @@ from notion.client import notion
 #-----------------------------------------
 # 국내주식 거래내역 DB 업데이트
 #-----------------------------------------
-#from domestic_stock_trade.read import 
-#from domestic_stock_trade.update import 
-#from trade.fifo import group_by_ticker, process_fifo
+from domestic_stock_trade.read import 
+from domestic_stock_trade.update import 
+from trade.fifo import group_by_ticker, process_fifo
 
-response = notion.databases.query(
-        database_id=NOTION_DOMESTIC_STOCK_TRADE_DB_ID
-    )
-
-print(response)
-
-"""
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
     # 각 페이지별로 데이터 읽기
     
