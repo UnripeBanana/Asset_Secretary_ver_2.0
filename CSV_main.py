@@ -6,7 +6,7 @@ from notion.get_all_pages import get_all_pages
 #-----------------------------------------
 from domestic_stock_info.read import get_ticker
 from domestic_stock_info.data import get_domestic_stock_info
-from domestic_stock_info.history.main import domestic_stock_info_history_main
+from domestic_stock_info.CSV.update import domestic_stock_info_history_main
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
   # 티커 데이터 추출
