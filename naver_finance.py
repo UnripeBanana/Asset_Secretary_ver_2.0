@@ -23,10 +23,6 @@ def put_ticker_to_get_naver_prop(ticker):
 
     krx_item = data["result"]["areas"][0]["datas"][0]
     nxt_item = data["result"]["areas"][0]["datas"][0]["nxtOverMarketPriceInfo"]
-
-    # 임시로 넣은 코드
-    import json
-    print(json.dumps(item, indent=4, ensure_ascii=False))
   
     return {
         "nv": krx_item["nv"],      # 현재가
