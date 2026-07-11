@@ -4,13 +4,11 @@ from notion.get_all_pages import get_all_pages
 #-----------------------------------------
 # 국내주식 종목 DB 업데이트
 #-----------------------------------------
+from domestic_stock.read import get_ticker
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # 티커 데이터 추출
-    ticker_data = page["properties"]["티커"]["rich_text"]
-    if not ticker_data:
-        continue
-    ticker = ticker_data[0]["plain_text"]
+    
 
     # 네이버증권에서 데이터 받아오기
     stock_info = get_naver_prop(ticker)
