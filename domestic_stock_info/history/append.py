@@ -1,13 +1,12 @@
 from pathlib import Path
 import pandas as pd
-from datetime import datetime
-from zoneinfo import ZoneInfo
+from utils.day_log import today_is
 
 CSV_PATH = Path("domestic_stock_info/history/price_history.csv")
 
 def append_history(domestic_stock_info):
     row = {
-        "date": datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y-%m-%d"),
+        "date": today_is(),
         "ticker": domestic_stock_info["cd"],
         "name": domestic_stock_info["nm"],
         "open": domestic_stock_info["ov"],
