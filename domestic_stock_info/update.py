@@ -1,7 +1,7 @@
 from notion.client import notion # notion : 로그인 된 앱에 접근할 수 있도록 해주는 역할
 from notion.rich_text import rich_text
 from utils.day_log import today_and_time_is
-from domestic_stock_info.csv.get_max_min_nMonth import get_max_min_nMonth
+from domestic_stock_info.csv.get_high_low_nMonth import get_high_low_nMonth
 
 def update_domestic_stock_info_DB(page, domestic_stock_info):
 
@@ -14,6 +14,37 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         cr *= -1
     
     # 3개월 최고가 최저가 계산
+    # update_nMonth_max_min_value(current_max, current_min, ticker, month)
+    
+    high_low_3m = update_nMonth_high_low_value(domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 3)
+    high_low_12m = update_nMonth_high_low_value(domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 12)
+
+
+    
+    def update_nMonth_high_low_value(current_high, current_low, ticker, month):
+        # get_high_low_nMonth(ticker, month)
+        high_low = get_high_low_nMonth(ticker, month)
+
+        high_notion_text = (str(month) + "_최고가_깃허브")
+        low_notion_text = (str(month) + "_최저가_깃허브")
+        
+        high = high_low["high"]
+        if high is None or current_high > high:
+            high = current_high
+        if page["properties"][high_notion_text]["number"]:
+            if page["properties"][high_notion_text]["number"] > high:
+                high = page["properties"][high_notion_text]["number"]
+    
+        low = high_low["low"]
+        if low is None or current_low < low:
+            low = current_low
+        if page["properties"][low_notion_text]["number"]:
+            if page["properties"][low_notion_text]["number"] < low:
+                min = page["properties"][low_notion_text]["number"]
+
+        return {"high": high, "low": low}
+    
+    
     max_min_3m = get_max_min_nMonth(domestic_stock_info["cd"], 3)
     
     max_3 = max_min_3m["high"]
@@ -46,10 +77,6 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     if page["properties"]["12개월_최저가_깃허브"]["number"]:
         if page["properties"]["12개월_최저가_깃허브"]["number"] < min_12:
             min_12 = page["properties"]["12개월_최저가_깃허브"]["number"]
-
-
-    def update_nMonth_max_min_value(current_max, current_min, int(month)):
-        
         
     krx_domestic_stock_info_naver_finance = {
         # KRX 시장 값을 반환
