@@ -37,6 +37,7 @@ def put_ticker_to_get_naver_prop(ticker):
         "aq": krx_item["aq"],      # 거래량
         "aa": krx_item["aa"],      # 거래대금 : 하루동안 얼마가 거래되었는가 (평균 거래대금보다 많은 양이 거래될 시 신뢰도 있는 등락이라고 판단)
         "countOfListedStock": krx_item["countOfListedStock"]  # 상장주식수
+    }
 
         """
         # nxtOverMarketPriceInfo
@@ -51,4 +52,3 @@ def put_ticker_to_get_naver_prop(ticker):
         "accumulatedTradingVolume": nxt_item["accumulatedTradingVolume"],              # 거래량
         "accumulatedTradingValue": nxt_item["accumulatedTradingValue"]                 # 거래대금
         """
-    }
