@@ -13,7 +13,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     print(page)
     print("\n\n")
     print(page["properties"])
-    if not page:
+    if page:
         break
     
     
