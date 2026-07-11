@@ -17,8 +17,15 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
   # 네이버증권에서 데이터 받아오기
   domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
 
+  CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
+  
+  df = pd.read_csv(
+      CSV_PATH,
+      dtype={"ticker": str}
+  )
+  
   # CSV에 데이터 업로드
-  append_history(domestic_stock_info)
+  append_history(df, domestic_stock_info)
 
   df.to_csv(
       CSV_PATH,
