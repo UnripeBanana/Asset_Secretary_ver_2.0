@@ -20,7 +20,6 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # 노션에 데이터 업로드
     update_domestic_stock_info_DB(page, domestic_stock_info)
 
-    # CSV에 데이터 업로드
 
 
 """
