@@ -27,7 +27,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Save History
-        run: python3 csv_main.py --reset
+        run: python3 csv_main.py
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DOMESTIC_STOCK_INFO_DB_ID: ${{ secrets.NOTION_DOMESTIC_STOCK_INFO_DB_ID }}
