@@ -1,12 +1,4 @@
-from collections import defaultdict, deque
-
-def group_by_ticker(trades):
-    grouped = defaultdict(list)
-
-    for trade in trades:
-        grouped[trade["ticker"]].append(trade)
-
-    return grouped
+from collections import deque
 
 def process_fifo(grouped_trades):
 
