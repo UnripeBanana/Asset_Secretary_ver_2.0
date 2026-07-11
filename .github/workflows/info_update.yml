@@ -1,4 +1,4 @@
-name: Update Stock Prices
+name: Update Information
 
 on:
   workflow_dispatch:
