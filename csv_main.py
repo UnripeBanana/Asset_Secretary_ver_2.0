@@ -8,6 +8,7 @@ from domestic_stock_info.read import get_ticker
 from domestic_stock_info.data import get_domestic_stock_info
 from domestic_stock_info.csv.update import append_history
 from pathlib import Path
+import pandas as pd
 
 CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
 
