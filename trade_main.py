@@ -11,10 +11,7 @@ from domestic_stock_trade.read import read_domestic_stock_trade
 from trade.fifo import process_fifo
 
 # 각 페이지별로 데이터 읽기
-
 groups = defaultdict(list)
-
-
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
     trade = read_domestic_stock_trade(page)  # trade : {'page_id': '9446e5ae-e083-82af-83c7-81578d26b1bf', 'ticker': '삼성전자', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 349000, 'amount': 349000}
@@ -25,7 +22,7 @@ for trades in groups.values():
     trades.sort(key=lambda x: x["date"])
 
 results = process_fifo(groups)
-print(results)
+
 
 """
 # 데이터 업데이트
