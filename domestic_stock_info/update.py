@@ -13,11 +13,13 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         cv *= -1
         cr *= -1
 
+    """
     def get_ticker(page):
     ticker_data = page["properties"]["티커"]["rich_text"]
     if not ticker_data:
         return None
     return ticker_data[0]["plain_text"]
+    """
     
     # 3개월 최고가 최저가 계산
     _3month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 3)
