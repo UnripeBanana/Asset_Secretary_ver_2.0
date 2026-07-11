@@ -31,7 +31,11 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         "거래대금_깃허브": {"number": domestic_stock_info["aa"]},
         "마지막 업데이트": rich_text(logging())
     }
-    return krx_domestic_stock_info_naver_finance
+
+    notion.pages.update(
+        page_id = page["id"],
+        properties = krx_domestic_stock_info_naver_finance
+    )
 
 # NXT 시장 데이터 활용은 나중에 어느정도 코드가 완성됐을 때 추가하자
 """
