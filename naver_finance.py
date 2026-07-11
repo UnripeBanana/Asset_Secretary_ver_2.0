@@ -38,17 +38,3 @@ def put_ticker_to_get_naver_prop(ticker):
         "aa": krx_item["aa"],      # 거래대금 : 하루동안 얼마가 거래되었는가 (평균 거래대금보다 많은 양이 거래될 시 신뢰도 있는 등락이라고 판단)
         "countOfListedStock": krx_item["countOfListedStock"]  # 상장주식수
     }
-
-        """
-        # nxtOverMarketPriceInfo
-        "overMarketStatus": nxt_item["overMarketStatus"],      # 시간외 장 상태
-        "overPrice": nxt_item["overPrice"],                      # 시간외 현재가
-        "openPrice": nxt_item["openPrice"],                      # 시간외 시가 
-        "highPrice": nxt_item["highPrice"],                      # 시간외 고가
-        "lowPrice": nxt_item["lowPrice"],                        # 시간외 저가
-        "compareToPreviousPrice": nxt_item["compareToPreviousPrice"],                  # 상승/하락 'compareToPreviousPrice': {'code': '2', 'text': '상승', 'name': 'RISING'}
-        "compareToPreviousClosePrice": nxt_item["compareToPreviousClosePrice"],        # 전일대비
-        "fluctuationsRatio": nxt_item["fluctuationsRatio"],                            # 등락률
-        "accumulatedTradingVolume": nxt_item["accumulatedTradingVolume"],              # 거래량
-        "accumulatedTradingValue": nxt_item["accumulatedTradingValue"]                 # 거래대금
-        """
