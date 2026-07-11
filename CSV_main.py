@@ -2,7 +2,7 @@ from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
 from notion.get_all_pages import get_all_pages
 
 #-----------------------------------------
-# 국내주식 종목 DB 업데이트
+# 국내주식 CSV 업데이트
 #-----------------------------------------
 from domestic_stock_info.read import get_ticker
 from domestic_stock_info.data import get_domestic_stock_info
