@@ -18,4 +18,4 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
   domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
 
   # CSV에 데이터 업로드
-  domestic_stock_info_history_main(get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID))
+  domestic_stock_info_history_main(page, domestic_stock_info)
