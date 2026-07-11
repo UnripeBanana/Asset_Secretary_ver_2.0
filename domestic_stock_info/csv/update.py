@@ -2,14 +2,7 @@ from pathlib import Path
 import pandas as pd
 from utils.day_log import today_is
 
-CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
-
-df = pd.read_csv(
-    CSV_PATH,
-    dtype={"ticker": str}
-)
-
-def append_history(domestic_stock_info):
+def append_history(df, domestic_stock_info):
     row = {
         "date": str(today_is()),
         "ticker": str(domestic_stock_info["cd"]).zfill(6),
