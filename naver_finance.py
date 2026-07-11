@@ -26,7 +26,7 @@ def put_ticker_to_get_naver_prop(ticker):
   
     return {
         "cd": krx_item["cd"],      # 티커
-        
+        "nm": krx_item["nm"],      # 종목명
         "nv": krx_item["nv"],      # 현재가
         "cv": krx_item["cv"],      # 전일 대비 가격 변화(원)
         "cr": krx_item["cr"],      # 등락률(%)
