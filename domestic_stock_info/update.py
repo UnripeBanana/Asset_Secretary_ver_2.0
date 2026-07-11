@@ -1,6 +1,6 @@
 from notion.client import notion # notion : 로그인 된 앱에 접근할 수 있도록 해주는 역할
 from notion.rich_text import rich_text
-from utils.logger import logging
+from utils.day_log import today_is
 
 def update_domestic_stock_info_DB(page, domestic_stock_info):
 
@@ -29,7 +29,7 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         "시가총액_깃허브": {"number": domestic_stock_info["nv"]*domestic_stock_info["countOfListedStock"]},
         "거래량_깃허브": {"number": domestic_stock_info["aq"]},
         "거래대금_깃허브": {"number": domestic_stock_info["aa"]},
-        "마지막 업데이트": rich_text(logging())
+        "마지막 업데이트": rich_text(today_is())
     }
 
     notion.pages.update(
