@@ -1,7 +1,3 @@
-
-for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
-
-
 from config import NOTION_DOMESTIC_STOCK_TRADE_DB_ID
 from notion.get_all_pages import get_all_pages
 
@@ -11,6 +7,12 @@ from notion.get_all_pages import get_all_pages
 from domestic_stock_trade.read import 
 from domestic_stock_trade.update import 
 from trade.fifo import group_by_ticker, process_fifo
+
+for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
+    
+
+
+
 
 
 
