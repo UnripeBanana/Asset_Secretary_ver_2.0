@@ -5,7 +5,7 @@ from notion.client import notion
 #-----------------------------------------
 # 국내주식 거래내역 DB 업데이트
 #-----------------------------------------
-from domestic_stock_trade.read import 
+from domestic_stock_trade.read import read_domestic_stock_trade
 from domestic_stock_trade.update import 
 from trade.fifo import group_by_ticker, process_fifo
 
