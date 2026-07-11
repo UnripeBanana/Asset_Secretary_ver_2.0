@@ -46,6 +46,10 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     if page["properties"]["12개월_최저가_깃허브"]["number"]:
         if page["properties"]["12개월_최저가_깃허브"]["number"] < min_12:
             min_12 = page["properties"]["12개월_최저가_깃허브"]["number"]
+
+
+    def update_nMonth_max_min_value(current_max, current_min, int(month)):
+        
         
     krx_domestic_stock_info_naver_finance = {
         # KRX 시장 값을 반환
