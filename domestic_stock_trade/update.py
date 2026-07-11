@@ -20,8 +20,10 @@ def update_trade_page(page_id, remaining=None, profit=None):
     )
 
 
-def update_domestic_stock_trade_DB(page, domestic_stock_info):
+def update_domestic_stock_trade_DB(results):
 
+    
+    
     # KRX 시장 값_ 나중에 NXT 시장 값도 넣자
     cv = domestic_stock_info["cv"]
     cr = domestic_stock_info["cr"]
