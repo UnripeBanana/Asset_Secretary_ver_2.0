@@ -9,7 +9,13 @@ from domestic_stock_trade.update import
 from trade.fifo import group_by_ticker, process_fifo
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
+    # 각 페이지별로 데이터 읽기
     
+
+    # 읽은 데이터 fifo처리
+
+
+    # 데이터 업데이트
 
 
 
