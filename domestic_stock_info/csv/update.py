@@ -36,5 +36,4 @@ def append_history(domestic_stock_info):
         index=False,
         encoding="utf-8-sig"
     )
-    print(df.dtypes)
-    print(df.head())
+
