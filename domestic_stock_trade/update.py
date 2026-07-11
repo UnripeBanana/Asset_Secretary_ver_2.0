@@ -17,10 +17,9 @@ def update_domestic_stock_trade_DB(results, trades):
 
         if raw_prop["profit"] and not trade["profit_saved"]: 
             net_profit("domestic_stock", raw_prop["profit"])
-
-        properties["순수익 기록"] = {
-            "checkbox": True
-        }
+            properties["순수익 기록"] = {
+                "checkbox": True
+            }
 
         notion.pages.update(
             page_id = id,
