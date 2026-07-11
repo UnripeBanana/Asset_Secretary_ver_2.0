@@ -25,6 +25,8 @@ def put_ticker_to_get_naver_prop(ticker):
     nxt_item = data["result"]["areas"][0]["datas"][0]["nxtOverMarketPriceInfo"]
   
     return {
+        "cd": krx_item["cd"],      # 티커
+        
         "nv": krx_item["nv"],      # 현재가
         "cv": krx_item["cv"],      # 전일 대비 가격 변화(원)
         "cr": krx_item["cr"],      # 등락률(%)
