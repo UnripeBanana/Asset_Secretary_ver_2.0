@@ -25,7 +25,9 @@ for trades in groups.values():
     trades.sort(key=lambda x: x["date"])
 
 results = process_fifo(groups)
+print(results)
 
+"""
 # 데이터 업데이트
 for ticker, result in results.items():
     # 잔량 업데이트
