@@ -1,14 +1,14 @@
 from config import NOTION_DOMESTIC_STOCK_TRADE_DB_ID
 from notion.get_all_pages import get_all_pages
 from notion.client import notion
-from collections import defaultdict, deque
+from collections import defaultdict
 
 #-----------------------------------------
 # 국내주식 거래내역 DB 업데이트
 #-----------------------------------------
 from domestic_stock_trade.read import read_domestic_stock_trade
-#from domestic_stock_trade.update import 
 from trade.fifo import process_fifo
+from domestic_stock_trade.update import update_domestic_stock_trade_DB
 
 # 각 페이지별로 데이터 읽기
 groups = defaultdict(list)
@@ -24,7 +24,7 @@ for trades in groups.values():
 results = process_fifo(groups)
 
 # 노션에 데이터 업데이트
-
+update_domestic_stock_trade_DB(results)
 
 
 """
