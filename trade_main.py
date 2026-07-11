@@ -15,7 +15,7 @@ response = notion.databases.query(
 
 print(response)
 
-
+"""
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
     # 각 페이지별로 데이터 읽기
     
@@ -53,14 +53,14 @@ def domestic_stock_trade_main(NOTION_TRADE_DB_ID):
             )
     
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
-    """
+    
     # 임시로 노션 페이지 출력 확인
     print(page)
     print("\n\n")
     print(page["properties"])
     if page:
         break
-    """
+    
     
     # 티커 데이터 추출
     ticker = get_ticker(page)
@@ -72,3 +72,4 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 
     # 노션 & CSV에 데이터 업로드
     update_domestic_stock_info_DB(page, domestic_stock_info)
+"""
