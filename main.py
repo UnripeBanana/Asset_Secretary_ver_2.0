@@ -14,7 +14,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
         continue
 
     # 네이버증권에서 데이터 받아오기
-    domestic_stock_info = get_domestic_stock_info(ticker)
+    domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
 
     # 노션에 데이터 업로드
     update_stock_DB(page, stock_info)
