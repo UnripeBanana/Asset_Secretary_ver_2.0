@@ -26,3 +26,18 @@ def get_ticker(page):
         return None
 
     return ticker_data[0]["plain_text"]
+
+
+        """
+        # nxtOverMarketPriceInfo
+        "overMarketStatus": nxt_item["overMarketStatus"],      # 시간외 장 상태
+        "overPrice": nxt_item["overPrice"],                      # 시간외 현재가
+        "openPrice": nxt_item["openPrice"],                      # 시간외 시가 
+        "highPrice": nxt_item["highPrice"],                      # 시간외 고가
+        "lowPrice": nxt_item["lowPrice"],                        # 시간외 저가
+        "compareToPreviousPrice": nxt_item["compareToPreviousPrice"],                  # 상승/하락 'compareToPreviousPrice': {'code': '2', 'text': '상승', 'name': 'RISING'}
+        "compareToPreviousClosePrice": nxt_item["compareToPreviousClosePrice"],        # 전일대비
+        "fluctuationsRatio": nxt_item["fluctuationsRatio"],                            # 등락률
+        "accumulatedTradingVolume": nxt_item["accumulatedTradingVolume"],              # 거래량
+        "accumulatedTradingValue": nxt_item["accumulatedTradingValue"]                 # 거래대금
+        """
