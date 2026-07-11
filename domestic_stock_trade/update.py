@@ -9,7 +9,8 @@ def update_domestic_stock_trade_DB(results):
             "실현수익": {"number": raw_prop["profit"]}
         }
 
-        net_profit()
+        if raw_prop["profit"]: 
+            net_profit("domestic_stock", raw_prop["profit"])
 
         notion.pages.update(
             page_id = id,
