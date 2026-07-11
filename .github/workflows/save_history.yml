@@ -26,3 +26,4 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DOMESTIC_STOCK_INFO_DB_ID: ${{ secrets.NOTION_DOMESTIC_STOCK_INFO_DB_ID }}
+          NOTION_NET_PROFIT_DB_ID: ${{ secrets.NOTION_NET_PROFIT_DB_ID }}
