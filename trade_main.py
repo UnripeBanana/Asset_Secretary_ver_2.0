@@ -1,7 +1,18 @@
 
-from domestic_stock_trade.read import read_trade_db
-from domestic_stock_trade.update import update_trade_page
+for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
+
+
+from config import NOTION_DOMESTIC_STOCK_TRADE_DB_ID
+from notion.get_all_pages import get_all_pages
+
+#-----------------------------------------
+# 국내주식 거래내역 DB 업데이트
+#-----------------------------------------
+from domestic_stock_trade.read import 
+from domestic_stock_trade.update import 
 from trade.fifo import group_by_ticker, process_fifo
+
+
 
 def domestic_stock_trade_main(NOTION_TRADE_DB_ID):
     trades = read_trade_db(NOTION_TRADE_DB_ID)
