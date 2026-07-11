@@ -21,7 +21,7 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         "시가총액_깃허브": {"number": domestic_stock_info["nv"]*domestic_stock_info["countOfListedStock"]},
         "거래량_깃허브": {"number": domestic_stock_info["aq"]},
         "거래대금_깃허브": {"number": domestic_stock_info["aa"]},
-        "마지막 업데이트": rich_text(today_is())
+        "마지막 업데이트": rich_text(today_and_time_is())
     }
 
     notion.pages.update(
