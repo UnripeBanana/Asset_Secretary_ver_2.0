@@ -20,6 +20,8 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
 
 # 읽은 데이터 fifo처리
 print(groups)
+print("\n###############")
+print(groups.items())
 """
 results = process_fifo(groups)
 
