@@ -25,7 +25,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
   )
   
   # CSV에 데이터 업로드
-  append_history(df, domestic_stock_info)
+  df = append_history(df, domestic_stock_info)
 
   df.to_csv(
       CSV_PATH,
