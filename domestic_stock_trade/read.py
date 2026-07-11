@@ -10,17 +10,20 @@ def read_domestic_stock_trade(page):
 
 	relation_page_id = props["국내장 종목 DB"]["relation"][0]["id"]
 	relation_page = notion.pages.retrieve(relation_page_id)
-	print(relation_page["properties"])
+	#print(relation_page["properties"])
+	#relation_page["properties"]["title"][0]["plain_text"]
 	
 	trade = {
 		"page_id": page["id"],
-		"ticker": (props["종목명"]["select"]["name"] if props["종목명"]["select"] else None),
+		"ticker": relation_page["properties"]["title"][0]["plain_text"],
 		"type": props["매수/매도"]["select"]["name"],
 		"date": props["날짜"]["date"]["start"],
 		"qty": props["거래량"]["number"],
 		"price": props["단가"]["number"],
 		"amount": props["거래금액"]["formula"]["number"]
 	}
+
+	print(trade)
 	
 	return trade
 
