@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 from utils.day_log import today_is
 
-CSV_PATH = Path("domestic_stock_info/history/price_history.csv")
+CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
 
 def append_history(domestic_stock_info):
     row = {
