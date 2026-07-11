@@ -13,6 +13,13 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         cv *= -1
         cr *= -1
 
+    # 트레이딩, 3개월 최고가 최저가 계산
+    get_max_min_nMonth(domestic_stock_info[])
+        
+    return {
+        "high": int(df["high"].max()),
+        "low": int(df["low"].min())
+    }
     
         
     krx_domestic_stock_info_naver_finance = {
