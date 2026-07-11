@@ -1,5 +1,0 @@
-from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
-from notion.get_all_pages import get_all_pages
-from domestic_stock_info.history.main import domestic_stock_info_history_main
-
-domestic_stock_info_history_main(get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID))
