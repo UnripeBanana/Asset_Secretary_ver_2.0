@@ -2,6 +2,8 @@ def read_domestic_stock_trade(page):
 
 	props = page["properties"]
 
+	print(props)
+
 	trade = {
 		"page_id": page["id"],
 		"ticker": (props["종목명"]["select"]["name"] if props["종목명"]["select"] else None),
