@@ -13,7 +13,7 @@ def update_domestic_stock_trade_DB(results, trades):
             "실현수익": {"number": raw_prop["profit"]}
         }
 
-        trade = trade_map[page_id]
+        trade = trade_map[id]
 
         if raw_prop["profit"] and not trade["profit_saved"]: 
             net_profit("domestic_stock", raw_prop["profit"])
