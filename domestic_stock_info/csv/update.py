@@ -22,6 +22,18 @@ def append_history(domestic_stock_info):
         dtype={"ticker": str}
     )
 
+    # 잠시 추가한 코드
+    print("새로 추가할 row")
+    print(row)
+    
+    print("\n삭제 대상")
+    print(
+        df[
+            (df["date"] == row["date"]) &
+            (df["ticker"] == row["ticker"])
+        ]
+    )
+    
     # 같은 날짜 + 같은 티커 제거
     df = df[
         ~(
