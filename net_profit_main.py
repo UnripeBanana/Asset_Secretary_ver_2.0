@@ -1,0 +1,1 @@
+from config import NOTION_NET_PROFIT_DB_ID
