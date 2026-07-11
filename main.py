@@ -8,7 +8,9 @@ from domestic_stock.read import get_ticker
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # 티커 데이터 추출
-    
+    ticker = get_ticker(page)
+    if not ticker:
+        continue
 
     # 네이버증권에서 데이터 받아오기
     stock_info = get_naver_prop(ticker)
