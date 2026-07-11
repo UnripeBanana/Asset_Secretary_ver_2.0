@@ -9,13 +9,13 @@ def process_fifo(grouped_trades):
 
         for trade in trades:
             page_id = trade["page_id"]
-            ticker = trade["ticker"]
 
             # 페이지 정보가 없으면 생성
             if page_id not in updates:
                 updates[page_id] = {}
 
-            updates[page_id]["ticker"] = ticker
+            updates[page_id]["ticker"] = trade["ticker"]
+            updates[page_id]["date"] = trade["date"]
             
             # 매수
             if trade["type"] == "매수":
