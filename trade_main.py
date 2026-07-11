@@ -13,8 +13,9 @@ from trade.fifo import process_fifo
 # 각 페이지별로 데이터 읽기
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
     groups = defaultdict(list)
-    trade = read_domestic_stock_trade(page)
-    groups[trade["ticker"]].append(trade)
+    trade = read_domestic_stock_trade(page)  # trade : {'page_id': '9446e5ae-e083-82af-83c7-81578d26b1bf', 'ticker': '삼성전자', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 349000, 'amount': 349000}
+    groups[trade["ticker"]].append(trade)    # groups : defaultdict(<class 'list'>, {'삼성전자': [{'page_id': '9446e5ae-e083-82af-83c7-81578d26b1bf', 'ticker': '삼성전자', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 349000, 'amount': 349000}]})
+
 
 # 읽은 데이터 fifo처리
 results = process_fifo(groups)
@@ -36,13 +37,12 @@ for ticker, result in results.items():
         )
 
 ###############
-{'page_id': '9446e5ae-e083-82af-83c7-81578d26b1bf', 'ticker': '삼성전자', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 349000, 'amount': 349000}
+
 
 ###############
-defaultdict(<class 'list'>, {'삼성전자': [{'page_id': '9446e5ae-e083-82af-83c7-81578d26b1bf', 'ticker': '삼성전자', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 349000, 'amount': 349000}]})
 
 ###############
-dict_items([('삼성전자', [{'page_id': '9446e5ae-e083-82af-83c7-81578d26b1bf', 'ticker': '삼성전자', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 349000, 'amount': 349000}])])
+
 
 ##########################
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
