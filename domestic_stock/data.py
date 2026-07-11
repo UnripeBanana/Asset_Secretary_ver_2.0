@@ -2,3 +2,4 @@
 
 from naver_finance import put_ticker_to_get_naver_prop
 
+def get_domestic_stock_info()
