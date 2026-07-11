@@ -12,5 +12,3 @@ def update_domestic_stock_trade_DB(results):
             page_id = id,
             properties = properties
         )
-
-    # 순수익 DB 연결
