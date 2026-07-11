@@ -33,7 +33,10 @@ def append_history(df, domestic_stock_info):
         )
     ]
     
-    df.loc[len(df)] = row
+    df = pd.concat(
+        [df, pd.DataFrame([row])],
+        ignore_index=True
+    )
 
     return df
 
