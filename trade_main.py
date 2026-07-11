@@ -1,5 +1,6 @@
 from config import NOTION_DOMESTIC_STOCK_TRADE_DB_ID
 from notion.get_all_pages import get_all_pages
+from notion.client import notion
 
 #-----------------------------------------
 # 국내주식 거래내역 DB 업데이트
