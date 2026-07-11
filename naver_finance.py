@@ -43,7 +43,7 @@ def put_ticker_to_get_naver_prop(ticker):
         "countOfListedStock": krx_item["countOfListedStock"],  # 상장주식수
 
         # nxtOverMarketPriceInfo
-        "overMarketStatus ": nxt_item["overMarketStatus "],      # 시간외 장 상태
+        "overMarketStatus": nxt_item["overMarketStatus"],      # 시간외 장 상태
         "overPrice": nxt_item["overPrice"],                      # 시간외 현재가
         "openPrice": nxt_item["openPrice"],                      # 시간외 시가 
         "highPrice": nxt_item["highPrice"],                      # 시간외 고가
