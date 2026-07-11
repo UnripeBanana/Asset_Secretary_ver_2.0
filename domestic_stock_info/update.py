@@ -29,15 +29,15 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     _3month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 3)
     
     max_3 = _3month_max_min["high"]
-    if domestic_stock_info["nv"] > max_3:
-        max_3 = domestic_stock_info["nv"]
+    if domestic_stock_info["hv"] > max_3:
+        max_3 = domestic_stock_info["hv"]
     if not page["properties"]["3개월_최고가_깃허브"]["number"]:
         if page["properties"]["3개월_최고가_깃허브"]["number"] > max_3:
             max_3 = page["properties"]["3개월_최고가_깃허브"]["number"]
 
     min_3 = _3month_max_min["low"]
-    if domestic_stock_info["nv"] < min_3:
-        min_3 = domestic_stock_info["nv"]
+    if domestic_stock_info["lv"] < min_3:
+        min_3 = domestic_stock_info["lv"]
     if not page["properties"]["3개월_최저가_깃허브"]["number"]:
         if page["properties"]["3개월_최저가_깃허브"]["number"] < min_3:
             min_3 = page["properties"]["3개월_최저가_깃허브"]["number"]
@@ -46,15 +46,15 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     _12month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 3)
     
     max_12 = _12month_max_min["high"]
-    if domestic_stock_info["nv"] > max_12:
-        max_12 = domestic_stock_info["nv"]
+    if domestic_stock_info["hv"] > max_12:
+        max_12 = domestic_stock_info["hv"]
     if not page["properties"]["12개월_최고가_깃허브"]["number"]:
         if page["properties"]["12개월_최고가_깃허브"]["number"] > max_12:
             max_12 = page["properties"]["12개월_최고가_깃허브"]["number"]
 
     min_12 = _12month_max_min["low"]
-    if domestic_stock_info["nv"] < min_12:
-        min_12 = domestic_stock_info["nv"]
+    if domestic_stock_info["lv"] < min_12:
+        min_12 = domestic_stock_info["lv"]
     if not page["properties"]["12개월_최저가_깃허브"]["number"]:
         if page["properties"]["12개월_최저가_깃허브"]["number"] < min_12:
             min_12 = page["properties"]["12개월_최저가_깃허브"]["number"]
@@ -68,6 +68,10 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         "시가총액_깃허브": {"number": domestic_stock_info["nv"]*domestic_stock_info["countOfListedStock"]},
         "거래량_깃허브": {"number": domestic_stock_info["aq"]},
         "거래대금_깃허브": {"number": domestic_stock_info["aa"]},
+        "3개월_최고가_깃허브": {"number": max_3},
+        "3개월_최저가_깃허브": {"number": min_3},
+        "12개월_최고가_깃허브": {"number": max_12},
+        "12개월_최저가_깃허브": {"number": min_12},
         "마지막 업데이트": rich_text(today_and_time_is())
     }
 
