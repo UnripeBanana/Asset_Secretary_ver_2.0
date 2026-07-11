@@ -1,4 +1,3 @@
-from pathlib import Path
 import pandas as pd
 from utils.day_log import today_is
 
