@@ -14,7 +14,8 @@ def read_domestic_stock_trade(page):
 		"date": props["날짜"]["date"]["start"],
 		"qty": props["거래량"]["number"],
 		"price": props["단가"]["number"],
-		"amount": props["거래금액"]["formula"]["number"]
+		"amount": props["거래금액"]["formula"]["number"],
+		"profit_saved": props["순수익 반영"]["checkbox"]
 	}
 	
 	return trade
