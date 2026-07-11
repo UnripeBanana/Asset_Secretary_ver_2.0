@@ -25,6 +25,7 @@ def process_fifo(grouped_trades):
                     "price": trade["price"]
                 })
                 updates[page_id]["remaining"] = trade["qty"]
+                updates[page_id]["profit"] = 0
 
             # 매도
             else:
