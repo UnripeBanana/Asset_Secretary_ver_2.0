@@ -17,13 +17,7 @@ def append_history(domestic_stock_info):
         "amount": domestic_stock_info["aa"],
     }
 
-    df = pd.read_csv(
-        CSV_PATH,
-        dtype={"ticker": str}
-    )
-
-    df["ticker"] = df["ticker"].str.zfill(6)
-    df["date"] = df["date"].astype(str)
+    df = pd.read_csv(CSV_PATH)
 
     # 같은 날짜 + 같은 티커 제거
     df = df[
