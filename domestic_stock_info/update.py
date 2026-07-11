@@ -14,16 +14,16 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         cr *= -1
     
     # 3개월 최고가 최저가 계산
-    _3month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 3)
+    max_min_3m = get_max_min_nMonth(domestic_stock_info["cd"], 3)
     
-    max_3 = _3month_max_min["high"]
+    max_3 = max_min_3m["high"]
     if max_3 is None or domestic_stock_info["hv"] > max_3:
         max_3 = domestic_stock_info["hv"]
     if page["properties"]["3개월_최고가_깃허브"]["number"]:
         if page["properties"]["3개월_최고가_깃허브"]["number"] > max_3:
             max_3 = page["properties"]["3개월_최고가_깃허브"]["number"]
 
-    min_3 = _3month_max_min["low"]
+    min_3 = max_min_3m["low"]
     if min_3 is None or domestic_stock_info["lv"] < min_3:
         min_3 = domestic_stock_info["lv"]
     if page["properties"]["3개월_최저가_깃허브"]["number"]:
@@ -31,16 +31,16 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
             min_3 = page["properties"]["3개월_최저가_깃허브"]["number"]
 
     # 12개월 최고가 최저가 계산
-    _12month_max_min = get_max_min_nMonth(domestic_stock_info["cd"], 12)
+    max_min_12m = get_max_min_nMonth(domestic_stock_info["cd"], 12)
     
-    max_12 = _12month_max_min["high"]
+    max_12 = max_min_12m["high"]
     if max_12 is None or domestic_stock_info["hv"] > max_12:
         max_12 = domestic_stock_info["hv"]
     if page["properties"]["12개월_최고가_깃허브"]["number"]:
         if page["properties"]["12개월_최고가_깃허브"]["number"] > max_12:
             max_12 = page["properties"]["12개월_최고가_깃허브"]["number"]
 
-    min_12 = _12month_max_min["low"]
+    min_12 = max_min_12m["low"]
     if min_12 is None or domestic_stock_info["lv"] < min_12:
         min_12 = domestic_stock_info["lv"]
     if page["properties"]["12개월_최저가_깃허브"]["number"]:
