@@ -4,6 +4,11 @@ from utils.day_log import today_is
 
 CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
 
+df = pd.read_csv(
+    CSV_PATH,
+    dtype={"ticker": str}
+)
+
 def append_history(domestic_stock_info):
     row = {
         "date": str(today_is()),
@@ -16,11 +21,6 @@ def append_history(domestic_stock_info):
         "volume": domestic_stock_info["aq"],
         "amount": domestic_stock_info["aa"],
     }
-
-    df = pd.read_csv(
-        CSV_PATH,
-        dtype={"ticker": str}
-    )
 
     # 잠시 추가한 코드
     print("새로 추가할 row")
@@ -43,9 +43,4 @@ def append_history(domestic_stock_info):
     ]
     
     df.loc[len(df)] = row
-    df.to_csv(
-        CSV_PATH,
-        index=False,
-        encoding="utf-8-sig"
-    )
 
