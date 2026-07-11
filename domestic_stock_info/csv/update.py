@@ -6,8 +6,8 @@ CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
 
 def append_history(domestic_stock_info):
     row = {
-        "date": today_is(),
-        "ticker": domestic_stock_info["cd"],
+        "date": str(today_is()),
+        "ticker": str(domestic_stock_info["cd"]).zfill(6),
         "name": domestic_stock_info["nm"],
         "open": domestic_stock_info["ov"],
         "high": domestic_stock_info["hv"],
@@ -17,7 +17,13 @@ def append_history(domestic_stock_info):
         "amount": domestic_stock_info["aa"],
     }
 
-    df = pd.read_csv(CSV_PATH)
+    df = pd.read_csv(
+        CSV_PATH,
+        dtype={"ticker": str}
+    )
+
+    df["ticker"] = df["ticker"].str.zfill(6)
+    df["date"] = df["date"].astype(str)
 
     # 같은 날짜 + 같은 티커 제거
     df = df[
