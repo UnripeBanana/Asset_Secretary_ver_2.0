@@ -42,6 +42,9 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     
     high_low_3m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 3)
     high_low_12m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 12)
+    high_low_36m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 36)
+    high_low_60m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 60)
+    high_low_120m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 120)
         
     krx_domestic_stock_info_naver_finance = {
         # KRX 시장 값을 반환
@@ -56,6 +59,12 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
         "3개월_최저가_깃허브": {"number": high_low_3m["low"]},
         "12개월_최고가_깃허브": {"number": high_low_12m["high"]},
         "12개월_최저가_깃허브": {"number": high_low_12m["low"]},
+        "36개월_최고가_깃허브": {"number": high_low_36m["high"]},
+        "36개월_최저가_깃허브": {"number": high_low_36m["low"]},
+        "60개월_최고가_깃허브": {"number": high_low_60m["high"]},
+        "60개월_최저가_깃허브": {"number": high_low_60m["low"]},
+        "120개월_최고가_깃허브": {"number": high_low_120m["high"]},
+        "120개월_최저가_깃허브": {"number": high_low_120m["low"]},
         "마지막 업데이트": rich_text(today_and_time_is())
     }
 
