@@ -61,3 +61,12 @@ krx_gold_df.to_csv(
     index=False,
     encoding="utf-8-sig"
 )
+
+print(KRX_GOLD_CSV_PATH.resolve())
+print(len(krx_gold_df))
+
+pages = get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID)
+print("pages:", len(pages))
+
+krx_gold_info = get_krx_gold_info()
+print(krx_gold_info)
