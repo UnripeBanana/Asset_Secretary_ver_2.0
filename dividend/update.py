@@ -7,7 +7,7 @@ def update_dividend(properties):
 		new_properties = {"순수익 반영": {"checkbox": True}}
 
 		notion.pages.update(
-			page_id = properties[page_id],
+			page_id = properties["page_id"],
 			properties = new_properties
 		)
 
