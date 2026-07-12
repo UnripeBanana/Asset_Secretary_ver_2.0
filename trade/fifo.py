@@ -16,6 +16,7 @@ def process_fifo(groups):
 
             updates[page_id]["ticker"] = trade["ticker"]
             updates[page_id]["date"] = trade["date"]
+            updates[page_id]["profit_saved"] = trade["profit_saved"]
             
             # 매수
             if trade["type"] == "매수":
