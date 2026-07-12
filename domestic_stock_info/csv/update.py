@@ -13,18 +13,6 @@ def append_domestic_stock_history(df, domestic_stock_info):
         "volume": domestic_stock_info["aq"],
         "amount": domestic_stock_info["aa"],
     }
-
-    # 잠시 추가한 코드
-    print("새로 추가할 row")
-    print(row)
-    
-    print("\n삭제 대상")
-    print(
-        df[
-            (df["date"] == row["date"]) &
-            (df["ticker"] == row["ticker"])
-        ]
-    )
     
     # 같은 날짜 + 같은 티커 제거
     df = df[
