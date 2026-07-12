@@ -76,6 +76,7 @@ def get_gold_prop():
         "open_price": gold["openPrice"],                             # 시가
         "high": gold["highPrice"],                                   # 고가
         "low": gold["lowPrice"],                                     # 저가
+        "close_price": gold["closePrice"],                           # 종가
         "volume": gold["accumulatedTradingVolume"],                  # 거래량
         "value": gold["accumulatedTradingValue"]                     # 거래대금
     }
