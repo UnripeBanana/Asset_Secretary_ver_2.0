@@ -12,12 +12,14 @@ def update_krx_gold_info_DB(page, krx_gold_info):
     if krx_gold_info["direction"] == "5":
         change *= -1
         rate *= -1
+
+    path = 
     
-    high_low_3m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], 3)              # ticker : 'M04020000'
-    high_low_12m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], 12)
-    high_low_36m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], 36)
-    high_low_60m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], 60)
-    high_low_120m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], 120)
+    high_low_3m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], path, 3)              # ticker : 'M04020000'
+    high_low_12m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], path, 12)
+    high_low_36m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], path, 36)
+    high_low_60m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], path, 60)
+    high_low_120m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], path, 120)
 
     krx_gold_info_naver_finance = {
         # KRX 시장 값을 반환
