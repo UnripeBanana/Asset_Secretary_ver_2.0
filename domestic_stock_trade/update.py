@@ -12,7 +12,7 @@ def update_domestic_stock_trade_DB(results):
 
         if raw_prop["profit"] and not raw_prop["profit_saved"]: 
             net_profit("domestic_stock", raw_prop["profit"])
-            properties["순수익 기록"] = {
+            properties["순수익 반영"] = {
                 "checkbox": True
             }
 
