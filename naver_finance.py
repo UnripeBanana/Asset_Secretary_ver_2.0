@@ -67,6 +67,7 @@ def get_gold_prop():
     gold = response.json()["result"]["metals"]["M04020000"]
 
     return {
+        "ticker": gold["symbolCode"]                                 # 
         "price": int(gold["closePrice"].replace(",", "")),           # 현재가
         "change": int(gold["fluctuations"].replace(",", "")),        # 전일대비
         "rate": float(gold["fluctuationsRatio"]),                    # 등락률
@@ -75,5 +76,5 @@ def get_gold_prop():
         "high": gold["highPrice"],                                   # 고가
         "low": gold["lowPrice"],                                     # 저가
         "volume": gold["accumulatedTradingVolume"],                  # 거래량
-        "value": gold["accumulatedTradingValue"]                     # 거래대금    
+        "value": gold["accumulatedTradingValue"]                     # 거래대금
     }
