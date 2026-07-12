@@ -65,7 +65,6 @@ def get_gold_prop():
     )
     
     gold = response.json()["result"]["metals"]["M04020000"]
-    print(gold)
 
     return {
         "price": int(gold["closePrice"].replace(",", "")),           # 현재가
