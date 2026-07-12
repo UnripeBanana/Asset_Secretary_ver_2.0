@@ -24,8 +24,8 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 #-----------------------------------------
 # KRX 금현물 종목 DB 업데이트
 #-----------------------------------------
-from krx_gold.data import get_krx_gold_info
-from krx_gold.update import update_krx_gold_info_DB
+from krx_gold_info.data import get_krx_gold_info
+from krx_gold_info.update import update_krx_gold_info_DB
 
 for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
     # 네이버증권에서 데이터 받아오기
