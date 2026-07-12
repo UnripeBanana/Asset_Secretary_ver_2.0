@@ -40,3 +40,36 @@ def put_ticker_to_get_naver_prop(ticker):
         "aa": krx_item["aa"],      # 거래대금 : 하루동안 얼마가 거래되었는가 (평균 거래대금보다 많은 양이 거래될 시 신뢰도 있는 등락이라고 판단)
         "countOfListedStock": krx_item["countOfListedStock"]  # 상장주식수
     }
+
+def get_gold_prop():
+
+    url = "https://m.stock.naver.com/front-api/realTime/marketIndex/metals"
+    
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        "Origin": "https://m.stock.naver.com",
+        "Referer": "https://m.stock.naver.com/marketindex/metals/M04020000",
+    }
+    
+    payload = {
+        "reutersCodes": ["M04020000"]
+    }
+    
+    response = requests.post(
+        url,
+        headers=headers,
+        json=payload,
+        timeout=10
+    )
+    
+    gold = response.json()["result"]["metals"]["M04020000"]
+    print(gold)
+
+    return {
+        "price": int(gold["closePrice"].replace(",", "")),           # 현재가
+        "change": int(gold["fluctuations"].replace(",", "")),        # 전일대비
+        "rate": float(gold["fluctuationsRatio"]),                    # 등락률
+        "direction": gold["fluctuationsType"]["name"]                # 등락여부
+    }
