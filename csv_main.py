@@ -3,7 +3,6 @@ from notion.get_all_pages import get_all_pages
 from pathlib import Path
 import pandas as pd
 
-"""
 #-----------------------------------------
 # 국내주식 CSV 업데이트
 #-----------------------------------------
@@ -35,7 +34,7 @@ domestic_stock_df.to_csv(
     index=False,
     encoding="utf-8-sig"
 )
-"""
+
 #-----------------------------------------
 # KRX 금현물 CSV 업데이트
 #-----------------------------------------
