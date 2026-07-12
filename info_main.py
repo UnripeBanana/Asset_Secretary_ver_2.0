@@ -24,7 +24,8 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 #-----------------------------------------
 # KRX 금현물 종목 DB 업데이트
 #-----------------------------------------
-from krx_gold
+from krx_gold.data import get_krx_gold_info
+from krx_gold.update import update_krx_gold_info_DB
 
 for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
     # 네이버증권에서 데이터 받아오기
@@ -32,14 +33,3 @@ for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
 
     # 노션 & CSV에 데이터 업로드
     update_krx_gold_info_DB(page, krx_gold_info)
-
-from gold.update import update_KRX_GOLD_INFO_DB
-from data.domestic_gold import get_gold_price
-
-
-
-def gold_main (pages):
-  for page in pages:
-    gold_info = get_gold_price()
-  
-    update_KRX_GOLD_INFO_DB(page, gold_info)
