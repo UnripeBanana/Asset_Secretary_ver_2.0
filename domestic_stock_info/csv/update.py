@@ -1,7 +1,7 @@
 from utils.day_log import today_is
 import pandas as pd
 
-def append_history(df, domestic_stock_info):
+def append_domestic_stock_history(df, domestic_stock_info):
     row = {
         "date": str(today_is()),
         "ticker": str(domestic_stock_info["cd"]).zfill(6),
