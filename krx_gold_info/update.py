@@ -28,7 +28,7 @@ def update_krx_gold_info_DB(page, krx_gold_info):
         "전일대비_깃허브": {"number": change},
         "등락률_깃허브": {"number": rate},
         "거래량_깃허브": {"number": krx_gold_info["volume"]},
-        "거래대금_깃허브": {"number": krx_gold_info["value"]},
+        "거래대금_깃허브":  rich_text(krx_gold_info["value"]),
         "3개월_최고가_깃허브": {"number": high_low_3m["high"]},
         "3개월_최저가_깃허브": {"number": high_low_3m["low"]},
         "12개월_최고가_깃허브": {"number": high_low_12m["high"]},
@@ -41,7 +41,7 @@ def update_krx_gold_info_DB(page, krx_gold_info):
         "120개월_최저가_깃허브": {"number": high_low_120m["low"]},
         "마지막 업데이트": rich_text(today_and_time_is())
     }    
-
+    
     notion.pages.update(
         page_id = page["id"],
         properties = krx_gold_info_naver_finance
