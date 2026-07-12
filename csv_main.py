@@ -52,10 +52,6 @@ for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
     # 네이버증권에서 데이터 받아오기
     krx_gold_info = get_krx_gold_info()
 
-    print(krx_gold_info)   #{'ticker': 'M04020000', 'name': '국내 금', 'price': 198270, 'change': 460, 'rate': 0.23, 'direction': '2', 'open_price': '199,680', 'high': '199,860', 'low': '198,250', 'volume': '134,123', 'value': '26,711백만'}
-    print("\n\n")
-
-    """
     # CSV에 데이터 업로드
     krx_gold_df = append_krx_gold_history(krx_gold_df, krx_gold_info)
 
