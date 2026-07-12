@@ -12,4 +12,4 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_DIVIDEND_DB_ID):
     properties = read_dividend(page)
     
     # 노션에 데이터 업데이트
-    #update_dividend(properties)
+    update_dividend(properties)
