@@ -1,7 +1,7 @@
 from notion.client import notion # notion : 로그인 된 앱에 접근할 수 있도록 해주는 역할
 from notion.rich_text import rich_text
-from utils.logger import logging
-from config import NOTION_KRX_GOLD_INFO_DB_ID
+from utils.ㅇ묘_ㅣㅐㅎ import logging
+
 def update_krx_gold_info_DB(page, krx_gold_info):
 
 
