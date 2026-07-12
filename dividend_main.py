@@ -5,6 +5,7 @@ from notion.get_all_pages import get_all_pages
 # 국내주식 거래내역 DB 업데이트
 #-----------------------------------------
 from dividend.read import read_dividend
+from dividend.update import update_dividend
 from net_profit import net_profit
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_DIVIDEND_DB_ID):
