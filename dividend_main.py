@@ -1,0 +1,1 @@
+from config import NOTION_DOMESTIC_STOCK_DIVIDEND_DB_ID
