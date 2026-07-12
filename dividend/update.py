@@ -2,8 +2,31 @@ from notion.client import notion # notion : 로그인 된 앱에 접근할 수 �
 from net_profit import net_profit
 
 def update_dividend(properties):
+    for id, raw_prop in properties:
+        properties = {
+            "잔량": {"number": raw_prop["remaining"]},
+            "실현수익": {"number": raw_prop["profit"]}
+        }
 
-    
+        if raw_prop["profit"] and not raw_prop["profit_saved"]: 
+            net_profit("domestic_stock", raw_prop["profit"])
+            properties["순수익 반영"] = {
+                "checkbox": True
+            }
+
+        notion.pages.update(
+            page_id = id,
+            properties = properties
+        )
+
+
+
+
+    	properties = {
+		"page_id": page["id"],
+		"dividend": props["배당금"]["formula"]["number"],
+		"profit_saved": props["순수익 반영"]["checkbox"]
+	}
 
     """
     from notion.client import notion # notion : 로그인 된 앱에 접근할 수 있도록 해주는 역할
