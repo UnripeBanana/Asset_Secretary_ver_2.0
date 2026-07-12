@@ -8,12 +8,12 @@ def append_krx_gold_history(df, krx_gold_info):
         "date": str(today_is()),
         "ticker": str(krx_gold_info["ticker"]).zfill(6),
         "name": krx_gold_info["name"],
-        "open": domestic_stock_info["ov"],
-        "high": domestic_stock_info["hv"],
-        "low": domestic_stock_info["lv"],
+        "open": krx_gold_info["open_price"],
+        "high": krx_gold_info["high"],
+        "low": krx_gold_info["low"],
         "close": domestic_stock_info["nv"],
-        "volume": domestic_stock_info["aq"],
-        "amount": domestic_stock_info["aa"],
+        "volume": krx_gold_info["volume"],
+        "amount": krx_gold_info["value"],
     }
 
 
