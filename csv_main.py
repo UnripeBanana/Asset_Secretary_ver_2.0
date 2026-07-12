@@ -1,5 +1,7 @@
 from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
 from notion.get_all_pages import get_all_pages
+from pathlib import Path
+import pandas as pd
 
 #-----------------------------------------
 # 국내주식 CSV 업데이트
@@ -7,13 +9,11 @@ from notion.get_all_pages import get_all_pages
 from domestic_stock_info.read import get_ticker
 from domestic_stock_info.data import get_domestic_stock_info
 from domestic_stock_info.csv.update import append_history
-from pathlib import Path
-import pandas as pd
 
-CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
+DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
 
 df = pd.read_csv(
-    CSV_PATH,
+    DOMESTIC_STOCK_CSV_PATH,
     dtype={"ticker": str}
 )
 
@@ -30,7 +30,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
   df = append_history(df, domestic_stock_info)
 
 df.to_csv(
-    CSV_PATH,
+    DOMESTIC_STOCK_CSV_PATH,
     index=False,
     encoding="utf-8-sig"
 )
@@ -39,31 +39,24 @@ df.to_csv(
 # KRX 금현물 CSV 업데이트
 #-----------------------------------------
 from krx_gold_info.data import get_krx_gold_info
-from domestic_stock_info.csv.update import append_history
-from pathlib import Path
-import pandas as pd
+from krx_gold_info.csv.update import append_krx_gold_history
 
-CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
+KRX_GOLD_CSV_PATH = Path("krx_gold_info/csv/price_history.csv")
 
 df = pd.read_csv(
-    CSV_PATH,
+    KRX_GOLD_CSV_PATH,
     dtype={"ticker": str}
 )
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
-  # 티커 데이터 추출
-  ticker = get_ticker(page)
-  if not ticker:
-      continue
-
   # 네이버증권에서 데이터 받아오기
   domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
   
   # CSV에 데이터 업로드
-  df = append_history(df, domestic_stock_info)
+  df = append_krx_gold_history(df, domestic_stock_info)
 
 df.to_csv(
-    CSV_PATH,
+    KRX_GOLD_CSV_PATH,
     index=False,
     encoding="utf-8-sig"
 )
