@@ -3,9 +3,9 @@ from notion.rich_text import rich_text
 from utils.day_log import today_and_time_is
 from domestic_stock_info.csv.get_high_low_nMonth import get_high_low_nMonth
 
-def update_nMonth_high_low_value(page, current_high, current_low, ticker, month):
+def update_nMonth_high_low_value(page, current_high, current_low, ticker, path, month):
     # get_high_low_nMonth(ticker, month)
-    high_low = get_high_low_nMonth(ticker, month)
+    high_low = get_high_low_nMonth(ticker, month, path)
 
     high_notion_text = f"{month}개월_최고가_깃허브"
     low_notion_text = f"{month}개월_최저가_깃허브"
@@ -39,12 +39,14 @@ def update_domestic_stock_info_DB(page, domestic_stock_info):
     
     # 3개월, 12개월 최고가 최저가 계산
     # update_nMonth_max_min_value(current_max, current_min, ticker, month)
+
+    path = "domestic_stock_info/csv/price_history.csv"
     
-    high_low_3m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 3)
-    high_low_12m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 12)
-    high_low_36m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 36)
-    high_low_60m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 60)
-    high_low_120m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 120)
+    high_low_3m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], path, 3)
+    high_low_12m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], path, 12)
+    high_low_36m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], path, 36)
+    high_low_60m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], path, 60)
+    high_low_120m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], path, 120)
         
     krx_domestic_stock_info_naver_finance = {
         # KRX 시장 값을 반환
