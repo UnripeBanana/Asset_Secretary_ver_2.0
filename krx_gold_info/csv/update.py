@@ -27,8 +27,5 @@ def append_krx_gold_history(df, krx_gold_info):
         ignore_index=True
     )
 
-    print(df.tail())
-    print(len(df))
-    
     return df
 
