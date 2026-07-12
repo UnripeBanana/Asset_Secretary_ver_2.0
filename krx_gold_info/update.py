@@ -13,12 +13,14 @@ def update_krx_gold_info_DB(page, krx_gold_info):
         change *= -1
         rate *= -1
     
-    high_low_3m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], domestic_stock_info["cd"], 3)
+    high_low_3m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["symbolCode"], 3)
     high_low_12m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 12)
     high_low_36m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 36)
     high_low_60m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 60)
     high_low_120m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 120)
 
+'symbolCode': 'M04020000'
+    
     
     krx_gold_info_naver_finance = {
         # KRX 시장 값을 반환
