@@ -11,11 +11,9 @@ from domestic_stock_trade.update import update_domestic_stock_trade_DB
 
 # 각 페이지별로 데이터 읽기
 groups = defaultdict(list)
-trades = []
 
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_TRADE_DB_ID):
     trade = read_domestic_stock_trade(page)  
-    trades.append(trade)  
     groups[trade["ticker"]].append(trade)   
     
 # 읽은 데이터 fifo처리
@@ -25,7 +23,7 @@ for trades in groups.values():
 results = process_fifo(groups)
 
 # 노션에 데이터 업데이트
-update_domestic_stock_trade_DB(results, trades)
+update_domestic_stock_trade_DB(results, groups)
 
 
 
