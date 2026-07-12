@@ -1,4 +1,4 @@
-from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
+from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID, NOTION_KRX_GOLD_INFO_DB_ID
 from notion.get_all_pages import get_all_pages
 from pathlib import Path
 import pandas as pd
@@ -48,7 +48,7 @@ df = pd.read_csv(
     dtype={"ticker": str}
 )
 
-for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
+for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
   # 네이버증권에서 데이터 받아오기
   domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
   
