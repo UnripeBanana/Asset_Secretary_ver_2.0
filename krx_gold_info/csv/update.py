@@ -11,7 +11,7 @@ def append_krx_gold_history(df, krx_gold_info):
         "open": krx_gold_info["open_price"],
         "high": krx_gold_info["high"],
         "low": krx_gold_info["low"],
-        "close": domestic_stock_info["nv"],
+        "close": krx_gold_info["close_price"],
         "volume": krx_gold_info["volume"],
         "amount": krx_gold_info["value"],
     }
@@ -19,7 +19,20 @@ def append_krx_gold_history(df, krx_gold_info):
 
 
 
-
+    return {
+        "ticker": gold["symbolCode"],                                # 'M04020000'
+        "name": gold["name"],                                        # 이름 : "국내 금"
+        "price": int(gold["closePrice"].replace(",", "")),           # 현재가
+        "change": int(gold["fluctuations"].replace(",", "")),        # 전일대비
+        "rate": float(gold["fluctuationsRatio"]),                    # 등락률
+        "direction": gold["fluctuationsType"]["code"],               # 등락여부
+        "open_price": gold["openPrice"],                             # 시가
+        "high": gold["highPrice"],                                   # 고가
+        "low": gold["lowPrice"],                                     # 저가
+        "close_price": gold["closePrice"],                           # 종가
+        "volume": gold["accumulatedTradingVolume"],                  # 거래량
+        "value": gold["accumulatedTradingValue"]                     # 거래대금
+    }
 
 
     
