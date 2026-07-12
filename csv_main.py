@@ -38,7 +38,7 @@ df.to_csv(
 #-----------------------------------------
 # KRX 금현물 CSV 업데이트
 #-----------------------------------------
-from domestic_stock_info.data import get_domestic_stock_info
+from krx_gold_info.data import get_krx_gold_info
 from domestic_stock_info.csv.update import append_history
 from pathlib import Path
 import pandas as pd
