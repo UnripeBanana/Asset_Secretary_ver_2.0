@@ -22,8 +22,12 @@ for trades in groups.values():
 
 results = process_fifo(groups)
 
+print(groups)
+print("\n\n")
+print(results)
+
 # 노션에 데이터 업데이트
-update_domestic_stock_trade_DB(results, groups)
+#update_domestic_stock_trade_DB(results, groups)
 
 
 
