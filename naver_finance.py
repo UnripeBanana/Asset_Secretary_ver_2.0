@@ -71,7 +71,7 @@ def get_gold_prop():
         "price": int(gold["closePrice"].replace(",", "")),           # 현재가
         "change": int(gold["fluctuations"].replace(",", "")),        # 전일대비
         "rate": float(gold["fluctuationsRatio"]),                    # 등락률
-        "direction": gold["fluctuationsType"]["name"],               # 등락여부
+        "direction": gold["fluctuationsType"]["code"],               # 등락여부
         "open_price": gold["openPrice"],                             # 시가
         "high": gold["highPrice"],                                   # 고가
         "low": gold["lowPrice"],                                     # 저가
