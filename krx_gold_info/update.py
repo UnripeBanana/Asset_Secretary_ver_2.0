@@ -13,7 +13,7 @@ def update_krx_gold_info_DB(page, krx_gold_info):
         change *= -1
         rate *= -1
 
-    path = 
+    path = "krx_gold_info/csv/price_history.csv"
     
     high_low_3m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], path, 3)              # ticker : 'M04020000'
     high_low_12m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], krx_gold_info["ticker"], path, 12)
