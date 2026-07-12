@@ -42,7 +42,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add domestic_stock_info/csv/price_history.csv
-          git add krx_gold_info/csv/
+          git add krx_gold_info/csv/price_history.csv
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
