@@ -1,6 +1,6 @@
 from collections import deque
 
-def process_fifo(grouped_trades):
+def process_fifo(groups):
     updates = {}
 
     for ticker, trades in grouped_trades.items():
