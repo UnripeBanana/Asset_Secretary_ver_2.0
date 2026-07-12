@@ -2,6 +2,7 @@ from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID, NOTION_KRX_GOLD_INFO_DB_ID
 from notion.get_all_pages import get_all_pages
 from pathlib import Path
 import pandas as pd
+
 """
 #-----------------------------------------
 # 국내주식 CSV 업데이트
@@ -60,4 +61,3 @@ krx_gold_df.to_csv(
     index=False,
     encoding="utf-8-sig"
 )
-"""
