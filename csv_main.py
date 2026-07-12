@@ -12,7 +12,7 @@ from domestic_stock_info.csv.update import append_history
 
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
 
-df = pd.read_csv(
+domestic_stock_df = pd.read_csv(
     DOMESTIC_STOCK_CSV_PATH,
     dtype={"ticker": str}
 )
@@ -27,9 +27,9 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
   domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
   
   # CSV에 데이터 업로드
-  df = append_history(df, domestic_stock_info)
+  domestic_stock_df = append_history(domestic_stock_df, domestic_stock_info)
 
-df.to_csv(
+domestic_stock_df.to_csv(
     DOMESTIC_STOCK_CSV_PATH,
     index=False,
     encoding="utf-8-sig"
@@ -43,19 +43,19 @@ from krx_gold_info.csv.update import append_krx_gold_history
 
 KRX_GOLD_CSV_PATH = Path("krx_gold_info/csv/price_history.csv")
 
-df = pd.read_csv(
+krx_gold_df = pd.read_csv(
     KRX_GOLD_CSV_PATH,
     dtype={"ticker": str}
 )
 
 for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
   # 네이버증권에서 데이터 받아오기
-  domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
+  krx_gold_info = get_krx_gold_info()
   
   # CSV에 데이터 업로드
-  df = append_krx_gold_history(df, domestic_stock_info)
+  krx_gold_df = append_krx_gold_history(krx_gold_df, krx_gold_info)
 
-df.to_csv(
+krx_gold_df.to_csv(
     KRX_GOLD_CSV_PATH,
     index=False,
     encoding="utf-8-sig"
