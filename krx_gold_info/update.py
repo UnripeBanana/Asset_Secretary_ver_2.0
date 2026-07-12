@@ -5,10 +5,41 @@ from domestic_stock_info.csv.get_high_low_nMonth import get_high_low_nMonth
 from domestic_stock_info.update import update_nMonth_high_low_value
 
 def update_krx_gold_info_DB(page, krx_gold_info):
-    
 
+    change = krx_gold_info["change"]
+    rate = krx_gold_info["rate"]
+    # 하락이면 음수로 변경
+    if krx_gold_info["direction"] == "5":
+        change *= -1
+        rate *= -1
+    
+    high_low_3m = update_nMonth_high_low_value(page, krx_gold_info["high"], krx_gold_info["low"], domestic_stock_info["cd"], 3)
+    high_low_12m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 12)
+    high_low_36m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 36)
+    high_low_60m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 60)
+    high_low_120m = update_nMonth_high_low_value(page, domestic_stock_info["hv"], domestic_stock_info["lv"], domestic_stock_info["cd"], 120)
 
     
+    krx_gold_info_naver_finance = {
+        # KRX 시장 값을 반환
+    
+        "현재가_깃허브": {"number": krx_gold_info["price"]},
+        "전일대비_깃허브": {"number": change},
+        "등락률_깃허브": {"number": rate},
+        "거래량_깃허브": {"number": krx_gold_info["volume"]},
+        "거래대금_깃허브": {"number": krx_gold_info["value"]},
+        "3개월_최고가_깃허브": {"number": high_low_3m["high"]},
+        "3개월_최저가_깃허브": {"number": high_low_3m["low"]},
+        "12개월_최고가_깃허브": {"number": high_low_12m["high"]},
+        "12개월_최저가_깃허브": {"number": high_low_12m["low"]},
+        "36개월_최고가_깃허브": {"number": high_low_36m["high"]},
+        "36개월_최저가_깃허브": {"number": high_low_36m["low"]},
+        "60개월_최고가_깃허브": {"number": high_low_60m["high"]},
+        "60개월_최저가_깃허브": {"number": high_low_60m["low"]},
+        "120개월_최고가_깃허브": {"number": high_low_120m["high"]},
+        "120개월_최저가_깃허브": {"number": high_low_120m["low"]},
+        "마지막 업데이트": rich_text(today_and_time_is())
+    }    
 
 
 
@@ -24,6 +55,10 @@ def update_krx_gold_info_DB(page, krx_gold_info):
         "value": gold["accumulatedTradingValue"]                     # 거래대금    
     }
 
+    notion.pages.update(
+        page_id = page["id"],
+        properties = krx_gold_info_naver_finance
+    )
     
     
     # KRX 시장 값_ 나중에 NXT 시장 값도 넣자
