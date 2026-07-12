@@ -2,10 +2,12 @@ from utils.day_log import today_is
 import pandas as pd
 
 def append_krx_gold_history(df, krx_gold_info):
+    #{'ticker': 'M04020000', 'name': '국내 금', 'price': 198270, 'change': 460, 'rate': 0.23, 'direction': '2', 'open_price': '199,680', 'high': '199,860', 'low': '198,250', 'volume': '134,123', 'value': '26,711백만'}
+
     row = {
         "date": str(today_is()),
-        "ticker": str(domestic_stock_info["cd"]).zfill(6),
-        "name": domestic_stock_info["nm"],
+        "ticker": str(krx_gold_info["ticker"]).zfill(6),
+        "name": krx_gold_info["name"],
         "open": domestic_stock_info["ov"],
         "high": domestic_stock_info["hv"],
         "low": domestic_stock_info["lv"],
