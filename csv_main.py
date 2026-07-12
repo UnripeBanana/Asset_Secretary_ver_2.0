@@ -36,9 +36,8 @@ df.to_csv(
 )
 
 #-----------------------------------------
-# 국내주식 CSV 업데이트
+# KRX 금현물 CSV 업데이트
 #-----------------------------------------
-from domestic_stock_info.read import get_ticker
 from domestic_stock_info.data import get_domestic_stock_info
 from domestic_stock_info.csv.update import append_history
 from pathlib import Path
