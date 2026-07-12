@@ -27,7 +27,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
   domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
   
   # CSV에 데이터 업로드
-  domestic_stock_df = append_history(domestic_stock_df, domestic_stock_info)
+  domestic_stock_df = append_domestic_stock_history(domestic_stock_df, domestic_stock_info)
 
 domestic_stock_df.to_csv(
     DOMESTIC_STOCK_CSV_PATH,
