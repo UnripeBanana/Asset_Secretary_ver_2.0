@@ -6,11 +6,11 @@ def append_krx_gold_history(df, krx_gold_info):
         "date": str(today_is()),
         "ticker": str(krx_gold_info["ticker"]).zfill(6),
         "name": krx_gold_info["name"],
-        "open": krx_gold_info["open_price"],
-        "high": krx_gold_info["high"],
-        "low": krx_gold_info["low"],
-        "close": krx_gold_info["close_price"],
-        "volume": krx_gold_info["volume"],
+        "open": int(krx_gold_info["open_price"].replace(",", "")),
+        "high": int(krx_gold_info["high"].replace(",", "")),
+        "low": int(krx_gold_info["low"].replace(",", "")),
+        "close": int(krx_gold_info["close_price"].replace(",", "")),
+        "volume": int(krx_gold_info["volume"].replace(",", "")),
         "amount": krx_gold_info["value"],
     }
     
