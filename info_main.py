@@ -17,7 +17,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # 네이버증권에서 데이터 받아오기
     domestic_stock_info = get_domestic_stock_info(ticker) # dictionary
 
-    # 노션 & CSV에 데이터 업로드
+    # 노션에 데이터 업로드
     update_domestic_stock_info_DB(page, domestic_stock_info)
 
 
@@ -31,5 +31,5 @@ for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
     # 네이버증권에서 데이터 받아오기
     krx_gold_info = get_krx_gold_info()
 
-    # 노션 & CSV에 데이터 업로드
+    # 노션에 데이터 업로드
     update_krx_gold_info_DB(page, krx_gold_info)
