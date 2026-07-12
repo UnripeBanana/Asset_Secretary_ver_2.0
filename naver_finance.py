@@ -67,7 +67,8 @@ def get_gold_prop():
     gold = response.json()["result"]["metals"]["M04020000"]
 
     return {
-        "ticker": gold["symbolCode"]                                 # 'M04020000'
+        "ticker": gold["symbolCode"],                                # 'M04020000'
+        "name": gold["name"],                                        # 이름 : "국내 금"
         "price": int(gold["closePrice"].replace(",", "")),           # 현재가
         "change": int(gold["fluctuations"].replace(",", "")),        # 전일대비
         "rate": float(gold["fluctuationsRatio"]),                    # 등락률
