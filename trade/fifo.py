@@ -3,7 +3,7 @@ from collections import deque
 def process_fifo(groups):
     updates = {}
 
-    for ticker, trades in grouped_trades.items():
+    for ticker, trades in groups.items():
         queue = deque()
         realized_profit = 0
 
