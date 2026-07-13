@@ -8,7 +8,7 @@ def read_krx_gold_trade(page):
 
 	trade = {
 			"page_id": page["id"],
-			"ticker": relation_page["properties"]["이름"]["title"][0]["plain_text"],
+			"ticker": relation_page["properties"]["종목"]["title"][0]["plain_text"],
 			"type": props["매수/매도"]["select"]["name"],
 			"date": props["날짜"]["date"]["start"],
 			"qty": props["거래량 (g)"]["number"],
