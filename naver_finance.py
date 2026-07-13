@@ -41,6 +41,11 @@ def put_ticker_to_get_naver_prop(ticker):
         "countOfListedStock": krx_item["countOfListedStock"]  # 상장주식수
     }
 
+def to_int(value):
+    if value in (None, "", "-"):
+        return None
+    return int(value.replace(",", ""))
+
 def get_gold_prop():
 
     url = "https://m.stock.naver.com/front-api/realTime/marketIndex/metals"
@@ -67,16 +72,16 @@ def get_gold_prop():
     gold = response.json()["result"]["metals"]["M04020000"]
 
     return {
-        "ticker": gold["symbolCode"],                                                      # 'M04020000'
-        "name": gold["name"],                                                              # 이름 : "국내 금"
-        "price": int(gold["closePrice"].replace(",", "")),                                 # 현재가
-        "change": int(gold["fluctuations"].replace(",", "")),                              # 전일대비
-        "rate": float(gold["fluctuationsRatio"]),                                          # 등락률
-        "direction": gold["fluctuationsType"]["code"],                                     # 등락여부
-        "open_price": int(gold["openPrice"].replace(",", "")),                             # 시가
-        "high": int(gold["highPrice"].replace(",", "")),                                   # 고가
-        "low": int(gold["lowPrice"].replace(",", "")),                                     # 저가
-        "close_price": int(gold["closePrice"].replace(",", "")),                           # 종가
-        "volume": int(gold["accumulatedTradingVolume"].replace(",", "")),                  # 거래량
-        "value": gold["accumulatedTradingValue"]                                           # 거래대금
+        "ticker": gold["symbolCode"],                                        # 'M04020000'
+        "name": gold["name"],                                                # 이름 : "국내 금"
+        "price": to_int(gold["closePrice"]),                                 # 현재가
+        "change": to_int(gold["fluctuations"]),                              # 전일대비
+        "rate": float(gold["fluctuationsRatio"]),                            # 등락률
+        "direction": gold["fluctuationsType"]["code"],                       # 등락여부
+        "open_price": to_int(gold["openPrice"]),                             # 시가
+        "high": to_int(gold["highPrice"]),                                   # 고가
+        "low": to_int(gold["lowPrice"]),                                     # 저가
+        "close_price": to_int(gold["closePrice"]),                           # 종가
+        "volume": to_int(gold["accumulatedTradingVolume"]),                  # 거래량
+        "value": gold["accumulatedTradingValue"]                             # 거래대금
     }
