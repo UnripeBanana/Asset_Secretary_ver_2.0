@@ -1,4 +1,4 @@
-from config import NOTION_DOMESTIC_STOCK_TRADE_DB_ID, NOTION_KRX_GOLD_TRADE_DB_ID
+from config import NOTION_DOMESTIC_STOCK_TRADE_DB_ID, NOTION_KRX_GOLD_TRADE_DB_ID, NOTION_DOMESTIC_BOND_ETF_TRADE_DB_ID
 from notion.get_all_pages import get_all_pages
 from collections import defaultdict
 from trade.fifo import process_fifo
@@ -56,7 +56,7 @@ from domestic_bond_etf_trade.update import update_domestic_bond_etf_trade_DB
 # 각 페이지별로 데이터 읽기
 domestic_bond_etf_groups = defaultdict(list)
 
-for page in get_all_pages(NOTION_KRX_GOLD_TRADE_DB_ID):
+for page in get_all_pages(NOTION_DOMESTIC_BOND_ETF_TRADE_DB_ID):
     domestic_bond_etf_trade = read_domestic_bond_etf_trade(page)  
     domestic_bond_etf_groups[domestic_bond_etf_trade["ticker"]].append(domestic_bond_etf_trade)   
     
