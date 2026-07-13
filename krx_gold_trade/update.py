@@ -3,7 +3,7 @@ from net_profit import net_profit
 
 # 'e816e5ae-e083-836a-9f48-01e15f18cd77': {'ticker': '한온시스템', 'date': '2026-06-18', 'profit_saved': False, 'remaining': 1, 'profit': 0}
 
-def update_domestic_stock_trade_DB(results):
+def update_krx_gold_trade_DB(results):
     for id, raw_prop in results.items():
         properties = {
             "잔량": {"number": raw_prop["remaining"]},
