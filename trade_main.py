@@ -46,3 +46,25 @@ krx_gold_results = process_fifo(krx_gold_groups)
 
 # 노션에 데이터 업데이트
 update_krx_gold_trade_DB(krx_gold_results)
+
+#-----------------------------------------
+# 국내채권 ETF 거래내역 DB 업데이트
+#-----------------------------------------
+from domestic_bond_etf_trade.read import read_domestic_bond_etf_trade
+from domestic_bond_etf_trade.update import update_domestic_bond_etf_trade_DB
+
+# 각 페이지별로 데이터 읽기
+domestic_bond_etf_groups = defaultdict(list)
+
+for page in get_all_pages(NOTION_KRX_GOLD_TRADE_DB_ID):
+    domestic_bond_etf_trade = read_domestic_bond_etf_trade(page)  
+    domestic_bond_etf_groups[domestic_bond_etf_trade["ticker"]].append(domestic_bond_etf_trade)   
+    
+# 읽은 데이터 fifo처리
+for trades in domestic_bond_etf_groups.values():
+    trades.sort(key=lambda x: x["date"])
+
+domestic_bond_etf_results = process_fifo(domestic_bond_etf_groups)
+
+# 노션에 데이터 업데이트
+update_domestic_bond_etf_trade_DB(domestic_bond_etf_results)
