@@ -11,8 +11,8 @@ def read_krx_gold_trade(page):
 			"ticker": relation_page["properties"]["종목"]["title"][0]["plain_text"],
 			"type": props["매수/매도"]["select"]["name"],
 			"date": props["날짜"]["date"]["start"],
-			"qty": props["거래량 (g)"]["number"],
-			"price": props["1g 당 가격"]["number"],
+			"qty": props["거래량"]["number"],
+			"price": props["단가"]["number"],
 			"amount": props["거래금액"]["formula"]["number"],
 			"profit_saved": props["순수익 반영"]["checkbox"]
 		}
