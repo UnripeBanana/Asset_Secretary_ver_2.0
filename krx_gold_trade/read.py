@@ -3,7 +3,9 @@ from notion.client import notion # notion : 로그인 된 앱에 접근할 수 �
 def read_krx_gold_trade(page):
 
 	props = page["properties"]
+	print(props)
 
+	"""
 	relation_page_id = props["국내장 종목 DB"]["relation"][0]["id"]
 	relation_page = notion.pages.retrieve(relation_page_id)
 	
@@ -19,3 +21,4 @@ def read_krx_gold_trade(page):
 	}
 	
 	return trade
+	"""
