@@ -3,6 +3,7 @@ from notion.get_all_pages import get_all_pages
 from collections import defaultdict
 from trade.fifo import process_fifo
 
+"""
 #-----------------------------------------
 # 국내주식 거래내역 DB 업데이트
 #-----------------------------------------
@@ -24,7 +25,7 @@ domestic_stock_results = process_fifo(domestic_stock_groups)
 
 # 노션에 데이터 업데이트
 update_domestic_stock_trade_DB(domestic_stock_results)
-
+"""
 
 #-----------------------------------------
 # KRX 금현물 거래내역 DB 업데이트
