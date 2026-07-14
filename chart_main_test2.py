@@ -131,7 +131,7 @@ ax.spines["right"].set_visible(False)
 # -----------------------------
 plt.tight_layout()
 
-date = 
+date = "2026-07-14"
 name = "삼성전자"
 ticker = "005930"
 
