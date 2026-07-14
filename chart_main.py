@@ -4,8 +4,6 @@ import matplotlib.dates as mdates
 
 df = pd.read_csv("domestic_stock_info/csv/price_history.csv")
 
-# print(df.head())
-
 ticker = "005930"
 
 stock = df[df["ticker"] == ticker].copy()
@@ -13,8 +11,6 @@ stock = df[df["ticker"] == ticker].copy()
 stock["date"] = pd.to_datetime(stock["date"])
 
 stock = stock.set_index("date")
-
-print(stock.head())
 
 mc = mpf.make_marketcolors(
     up='#e53935',      # 상승(빨강)
@@ -36,6 +32,9 @@ fig, axlist = mpf.plot(
     type="candle",
     volume=True,
     style=style,
+    update_width_config=dict(
+        candle_linewidth=0
+    ),
     returnfig=True,
 )
 
