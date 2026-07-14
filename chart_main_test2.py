@@ -76,8 +76,8 @@ margin = (price_max - price_min) * 0.05
 
 # y축을 0부터 보이게 설정
 ax.set_ylim(
-    bottom=0,
-    top=price_max + margin
+    bottom = price_min - margin,
+    top = price_max + margin
 )
 
 """
