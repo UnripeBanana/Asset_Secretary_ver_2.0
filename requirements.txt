@@ -4,3 +4,6 @@ pandas==2.3.0
 
 yfinance==0.2.61
 requests==2.32.3
+
+# 차트 그리려고 추가함.
+mplfinance==0.12.10b0
