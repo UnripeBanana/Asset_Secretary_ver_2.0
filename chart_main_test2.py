@@ -28,6 +28,8 @@ candle_width = 0.7
 # 캔들 그리기
 # -----------------------------
 for i, row in stock.iterrows():
+    print(row["low"])
+    print(row["high"])
 
     open_price = row["open"]
     high_price = row["high"]
