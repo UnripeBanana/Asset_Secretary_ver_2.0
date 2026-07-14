@@ -68,10 +68,10 @@ from domestic_stock_info.read import get_ticker
 from domestic_stock_info.data import get_domestic_stock_info
 from domestic_stock_info.csv.update import append_domestic_stock_history
 
-DOMESTIC_STOCK_CSV_PATH = Path("domestic_bond_etf_info/csv/price_history.csv")
+DOMESTIC_BOND_ETF_CSV_PATH = Path("domestic_bond_etf_info/csv/price_history.csv")
 
 domestic_stock_df = pd.read_csv(
-    DOMESTIC_STOCK_CSV_PATH,
+    DOMESTIC_BOND_ETF_CSV_PATH,
     dtype={"ticker": str}
 )
 
