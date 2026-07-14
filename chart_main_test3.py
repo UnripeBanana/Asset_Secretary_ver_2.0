@@ -102,7 +102,7 @@ ax.set_ylim(
 # -----------------------------
 ax.plot(
     high_idx,
-    high_price + margin,
+    high_price + 0.5,
     marker="v",                          # ▼ 표시
     color="gray",
     markersize=5
@@ -110,8 +110,8 @@ ax.plot(
 
 # 텍스트
 ax.text(
-    high_idx + 1,                      # 왼쪽으로 약간 이동
-    high_price + margin,          # ▼와 같은 높이
+    high_idx + 3,                      # 왼쪽으로 약간 이동
+    high_price + 0.5,          # ▼와 같은 높이
     f"High Price {high_price:,}",
     va="center",
     ha="right",
@@ -124,7 +124,7 @@ ax.text(
 # -----------------------------
 ax.plot(
     low_idx,
-    low_price - margin * 0.15,
+    low_price - 0.5,
     marker="^",                          # ▲ 표시
     color="gray",
     markersize=5
@@ -133,7 +133,7 @@ ax.plot(
 # 텍스트
 ax.text(
     low_idx + 0.5,                       # 오른쪽으로 약간 이동
-    low_price - margin * 0.15,           # ▲와 같은 높이
+    low_price - 0.5,           # ▲와 같은 높이
     f"Low Price {low_price:,}",
     va="center",
     ha="left",
