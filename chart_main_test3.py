@@ -101,7 +101,7 @@ ax.set_ylim(
 # 최고가 표시
 # -----------------------------
 ax.annotate(
-    f"최고 {high_price:,}",
+    f"High Price {high_price:,}",
     xy=(high_idx, high_price),
     xytext=(high_idx - 1.5, high_price + margin * 0.8),
     ha="center",
@@ -132,7 +132,7 @@ ax.plot(
 ax.text(
     low_idx + 0.2,      # 오른쪽으로 약간 이동
     low_price,          # ▲와 같은 높이
-    f"최저 {low_price:,}",
+    f"Low Price {low_price:,}",
     va="center",
     ha="left",
     fontsize=8,
