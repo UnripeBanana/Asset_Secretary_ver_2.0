@@ -1,5 +1,6 @@
 import pandas as pd
 import mplfinance as mpf
+import matplotlib.dates as mdates
 
 df = pd.read_csv("domestic_stock_info/csv/price_history.csv")
 
@@ -30,11 +31,30 @@ style = mpf.make_mpf_style(
     figcolor='white'
 )
 
-mpf.plot(stock, type="candle")
-
-mpf.plot(
+fig, axlist = mpf.plot(
     stock,
     type="candle",
-    style = style,
-    savefig="charts/005930.png"
+    volume=True,
+    style=style,
+    returnfig=True,
+)
+
+price_ax = axlist[0]
+
+# Y축
+price_ax.set_ylim(bottom=0)
+
+# X축
+price_ax.xaxis.set_major_locator(
+    mdates.WeekdayLocator(byweekday=mdates.MO)
+)
+price_ax.xaxis.set_major_formatter(
+    mdates.DateFormatter('%m-%d')
+)
+
+# 저장
+fig.savefig(
+    "charts/005930.png",
+    dpi=200,
+    bbox_inches="tight"
 )
