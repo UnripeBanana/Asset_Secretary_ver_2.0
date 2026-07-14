@@ -12,9 +12,9 @@ def update_nMonth_high_low_value(page, current_high, current_low, ticker, path, 
     
     high = high_low["high"]
     low = high_low["low"]
-    if high is None or current_high > high:
+    if current_high is not None and (high is None or current_high > high):
         high = current_high
-    if low is None or current_low < low:
+    if current_low is not None and (low is None or current_low < low):
         low = current_low
     
     saved_high = page["properties"][high_notion_text]["number"]
