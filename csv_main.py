@@ -64,9 +64,7 @@ krx_gold_df.to_csv(
 #-----------------------------------------
 # 국내 채권 ETF CSV 업데이트
 #-----------------------------------------
-from domestic_stock_info.read import get_ticker
-from domestic_stock_info.data import get_domestic_stock_info
-from domestic_stock_info.csv.update import append_domestic_stock_history
+# 국내 채권 ETF는 데이터를 받아오는 구조가 국내 주식과 동일함. 따라서 같은 함수를 적용.
 
 DOMESTIC_BOND_ETF_CSV_PATH = Path("domestic_bond_etf_info/csv/price_history.csv")
 
