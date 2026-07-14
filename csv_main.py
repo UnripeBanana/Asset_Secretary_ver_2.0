@@ -2,6 +2,15 @@ from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID, NOTION_KRX_GOLD_INFO_DB_ID,
 from notion.get_all_pages import get_all_pages
 from pathlib import Path
 import pandas as pd
+from utils.trading_day import is_trading_day
+
+#-----------------------------------------
+# 거래일 확인
+#-----------------------------------------
+
+if not is_trading_day():
+    print("오늘은 거래일이 아닙니다.")
+    return
 
 #-----------------------------------------
 # 국내주식 CSV 업데이트
