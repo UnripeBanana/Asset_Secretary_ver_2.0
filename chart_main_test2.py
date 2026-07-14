@@ -131,10 +131,11 @@ ax.spines["right"].set_visible(False)
 # -----------------------------
 plt.tight_layout()
 
+date = 
 name = "삼성전자"
 ticker = "005930"
 
-title = f"charts/{name}_{ticker}.png"
+title = f"charts/{date}_{name}_{ticker}.png"
 
 plt.savefig(
     title,
