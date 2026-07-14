@@ -110,7 +110,7 @@ ax.plot(
 
 # 텍스트
 ax.text(
-    high_idx - 0.3,      # 왼쪽으로 약간 이동
+    high_idx - 5,      # 왼쪽으로 약간 이동
     high_price,          # ▼와 같은 높이
     f"High Price {high_price:,}",
     va="center",
@@ -132,7 +132,7 @@ ax.plot(
 
 # 텍스트
 ax.text(
-    low_idx + 0.3,      # 오른쪽으로 약간 이동
+    low_idx + 0.5,      # 오른쪽으로 약간 이동
     low_price,          # ▲와 같은 높이
     f"Low Price {low_price:,}",
     va="center",
