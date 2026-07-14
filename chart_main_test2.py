@@ -75,7 +75,8 @@ price_max = stock["high"].max()
 margin = (price_max - price_min) * 0.05
 
 ax.set_ylim(
-    price_min - margin,
+    0,
+    #price_min - margin,
     price_max + margin
 )
 
