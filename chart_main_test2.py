@@ -68,8 +68,8 @@ for i, row in stock.iterrows():
 # -----------------------------
 ax.set_xlim(-1, len(stock))
 
-print(price_min)
-print(price_max)
+print(stock["low"].min())
+print(stock["high"].max())
 print(len(stock))
 
 # 여백 조금 주기
