@@ -6,7 +6,7 @@ from matplotlib.patches import Rectangle
 # -----------------------------
 # CSV 읽기
 # -----------------------------
-df = pd.read_csv("domestic_stock_info/csv/test_data.csv")
+df = pd.read_csv("domestic_stock_info/csv/test_data.csv", dtype={"ticker": str})
 
 ticker = "005930"
 
@@ -67,10 +67,6 @@ for i, row in stock.iterrows():
 # 축 설정
 # -----------------------------
 ax.set_xlim(-1, len(stock))
-
-print(stock["low"].min())
-print(stock["high"].max())
-print(len(stock))
 
 # 여백 조금 주기
 price_min = stock["low"].min()
