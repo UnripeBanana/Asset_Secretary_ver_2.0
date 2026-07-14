@@ -119,19 +119,24 @@ ax.annotate(
 # 최저가 표시
 # -----------------------------
 
-ax.annotate(
-    f"최저 {low_price:,}",
-    xy=(low_idx, low_price),
-    xytext=(low_idx + 1.5, low_price - margin * 0.8),
-    ha="center",
-    va="top",
-    fontsize=8,
+# ▲ 표시
+ax.plot(
+    low_idx,
+    low_price,
+    marker="^",
     color="gray",
-    arrowprops=dict(
-        arrowstyle="-",
-        color="gray",
-        lw=0.8
-    )
+    markersize=5
+)
+
+# 텍스트
+ax.text(
+    low_idx + 0.2,      # 오른쪽으로 약간 이동
+    low_price,          # ▲와 같은 높이
+    f"최저 {low_price:,}",
+    va="center",
+    ha="left",
+    fontsize=8,
+    color="gray"
 )
 
 # -----------------------------
