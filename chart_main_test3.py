@@ -64,6 +64,16 @@ for i, row in stock.iterrows():
     ax.add_patch(rect)
 
 # -----------------------------
+# 최고가 / 최저가
+# -----------------------------
+high_idx = stock["high"].idxmax()
+low_idx = stock["low"].idxmin()
+
+high_price = stock.loc[high_idx, "high"]
+low_price = stock.loc[low_idx, "low"]
+last_close = stock.iloc[-1]["close"]
+
+# -----------------------------
 # 축 설정
 # -----------------------------
 ax.set_xlim(-1, len(stock))
