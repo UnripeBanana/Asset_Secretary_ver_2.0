@@ -11,3 +11,5 @@ stock = df[df["ticker"] == ticker].copy()
 stock["date"] = pd.to_datetime(stock["date"])
 
 stock = stock.set_index("date")
+
+print(stock.head())
