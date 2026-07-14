@@ -100,30 +100,32 @@ ax.set_ylim(
 # -----------------------------
 # 최고가 표시
 # -----------------------------
-ax.annotate(
-    f"High Price {high_price:,}",
-    xy=(high_idx, high_price),
-    xytext=(high_idx - 1.5, high_price + margin * 0.8),
-    ha="center",
-    va="bottom",
-    fontsize=8,
+ax.plot(
+    high_idx,
+    high_price,
+    marker="v",      # ▼ 표시
     color="gray",
-    arrowprops=dict(
-        arrowstyle="-",
-        color="gray",
-        lw=0.8
-    )
+    markersize=5
+)
+
+# 텍스트
+ax.text(
+    high_idx - 0.2,      # 왼쪽으로 약간 이동
+    high_price,          # ▼와 같은 높이
+    f"High Price {high_price:,}",
+    va="center",
+    ha="left",
+    fontsize=8,
+    color="gray"
 )
 
 # -----------------------------
 # 최저가 표시
 # -----------------------------
-
-# ▲ 표시
 ax.plot(
     low_idx,
     low_price,
-    marker="^",
+    marker="^",     # ▲ 표시
     color="gray",
     markersize=5
 )
