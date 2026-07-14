@@ -124,8 +124,13 @@ ax.spines["right"].set_visible(False)
 # -----------------------------
 plt.tight_layout()
 
+name = "삼성전자"
+ticker = "005930"
+
+title = f"charts/{name}_{ticker}.png"
+
 plt.savefig(
-    "charts/005930.png",
+    title,
     dpi=300,
     bbox_inches="tight"
 )
