@@ -74,11 +74,18 @@ price_max = stock["high"].max()
 
 margin = (price_max - price_min) * 0.05
 
+# y축을 0부터 보이게 설정
 ax.set_ylim(
-    0,
-    #price_min - margin,
+    bottom=0,
+    top=price_max + margin
+)
+
+"""
+ax.set_ylim(
+    price_min - margin,
     price_max + margin
 )
+"""
 
 # -----------------------------
 # 날짜 표시 (매주 첫 거래일)
