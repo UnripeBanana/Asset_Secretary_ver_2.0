@@ -103,7 +103,7 @@ ax.set_ylim(
 ax.annotate(
     f"최고 {high_price:,}",
     xy=(high_idx, high_price),
-    xytext=(high_idx, high_price + margin * 0.8),
+    xytext=(high_idx - 1.5, high_price + margin * 0.8),
     ha="center",
     va="bottom",
     fontsize=8,
@@ -122,7 +122,7 @@ ax.annotate(
 ax.annotate(
     f"최저 {low_price:,}",
     xy=(low_idx, low_price),
-    xytext=(low_idx, low_price - margin * 0.8),
+    xytext=(low_idx + 1.5, low_price - margin * 0.8),
     ha="center",
     va="top",
     fontsize=8,
