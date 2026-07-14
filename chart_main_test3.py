@@ -102,7 +102,7 @@ ax.set_ylim(
 # -----------------------------
 ax.plot(
     high_idx,
-    high_price + margin * 0.15,
+    high_price + margin,
     marker="v",                          # ▼ 표시
     color="gray",
     markersize=5
@@ -110,8 +110,8 @@ ax.plot(
 
 # 텍스트
 ax.text(
-    high_idx + 0.5,                      # 왼쪽으로 약간 이동
-    high_price + margin * 0.15,          # ▼와 같은 높이
+    high_idx + 1,                      # 왼쪽으로 약간 이동
+    high_price + margin,          # ▼와 같은 높이
     f"High Price {high_price:,}",
     va="center",
     ha="right",
