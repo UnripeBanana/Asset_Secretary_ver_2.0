@@ -6,7 +6,7 @@ from matplotlib.patches import Rectangle
 # -----------------------------
 # CSV 읽기
 # -----------------------------
-df = pd.read_csv("domestic_stock_info/csv/price_history.csv")
+df = pd.read_csv("domestic_stock_info/csv/test_data.csv")
 
 ticker = "005930"
 
