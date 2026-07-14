@@ -46,6 +46,7 @@ jobs:
 
           git add domestic_stock_info/csv/price_history.csv
           git add krx_gold_info/csv/price_history.csv
+          git add domestic_bond_etf_info/csv/price_history.csv
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
