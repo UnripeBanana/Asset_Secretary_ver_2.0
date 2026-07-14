@@ -38,9 +38,7 @@ for page in get_all_pages(NOTION_KRX_GOLD_INFO_DB_ID):
 #-----------------------------------------
 # 국내 채권 ETF 종목 DB 업데이트
 #-----------------------------------------
-from domestic_stock_info.read import get_ticker
-from domestic_stock_info.data import get_domestic_stock_info
-from domestic_stock_info.update import update_domestic_stock_info_DB
+# 국내 채권 ETF는 데이터를 받아오는 구조가 국내 주식과 동일함. 따라서 같은 함수를 적용.
 
 for page in get_all_pages(NOTION_DOMESTIC_BOND_ETF_INFO_DB_ID):
     # 티커 데이터 추출
