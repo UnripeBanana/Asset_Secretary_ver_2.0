@@ -110,7 +110,7 @@ ax.plot(
 
 # 텍스트
 ax.text(
-    high_idx + 10,                      # 왼쪽으로 약간 이동
+    high_idx + 4,                      # 왼쪽으로 약간 이동
     high_price + 700,          # ▼와 같은 높이
     f"High Price {high_price:,}",
     va="center",
