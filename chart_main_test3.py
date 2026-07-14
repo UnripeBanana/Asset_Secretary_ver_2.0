@@ -16,6 +16,14 @@ stock["date"] = pd.to_datetime(stock["date"])
 stock = stock.sort_values("date").reset_index(drop=True)
 
 # -----------------------------
+# 이동평균선 계산
+# -----------------------------
+stock["MA5"] = stock["close"].rolling(5).mean()
+stock["MA20"] = stock["close"].rolling(20).mean()
+stock["MA60"] = stock["close"].rolling(60).mean()
+stock["MA120"] = stock["close"].rolling(120).mean()
+
+# -----------------------------
 # Figure 생성
 # -----------------------------
 fig, ax = plt.subplots(figsize=(15, 8))
@@ -62,6 +70,17 @@ for i, row in stock.iterrows():
     )
 
     ax.add_patch(rect)
+
+# -----------------------------
+# 이동평균선
+# -----------------------------
+ax.plot(x, stock["MA5"], color="orange", linewidth=1.2, label="MA5")
+ax.plot(x, stock["MA20"], color="red", linewidth=1.2, label="MA20")
+ax.plot(x, stock["MA60"], color="green", linewidth=1.2, label="MA60")
+ax.plot(x, stock["MA120"], color="blue", linewidth=1.2, label="MA120")
+
+ax.legend(loc="upper left")
+
 
 # -----------------------------
 # 최고가 / 최저가
