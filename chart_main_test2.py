@@ -28,9 +28,6 @@ candle_width = 0.7
 # 캔들 그리기
 # -----------------------------
 for i, row in stock.iterrows():
-    print(row["low"])
-    print(row["high"])
-
     open_price = row["open"]
     high_price = row["high"]
     low_price = row["low"]
@@ -70,6 +67,10 @@ for i, row in stock.iterrows():
 # 축 설정
 # -----------------------------
 ax.set_xlim(-1, len(stock))
+
+print(price_min)
+print(price_max)
+print(len(stock))
 
 # 여백 조금 주기
 price_min = stock["low"].min()
