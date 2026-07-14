@@ -2,7 +2,15 @@ from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID, NOTION_KRX_GOLD_INFO_DB_ID,
 from notion.get_all_pages import get_all_pages
 from pathlib import Path
 import pandas as pd
+
 from utils.trading_day import is_trading_day
+
+from domestic_stock_info.read import get_ticker
+from domestic_stock_info.data import get_domestic_stock_info
+from domestic_stock_info.csv.update import append_domestic_stock_history
+
+from krx_gold_info.data import get_krx_gold_info
+from krx_gold_info.csv.update import append_krx_gold_history
 
 def main():
     #-----------------------------------------
@@ -15,10 +23,6 @@ def main():
     #-----------------------------------------
     # 국내주식 CSV 업데이트
     #-----------------------------------------
-    from domestic_stock_info.read import get_ticker
-    from domestic_stock_info.data import get_domestic_stock_info
-    from domestic_stock_info.csv.update import append_domestic_stock_history
-    
     DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
     
     domestic_stock_df = pd.read_csv(
@@ -47,9 +51,6 @@ def main():
     #-----------------------------------------
     # KRX 금현물 CSV 업데이트
     #-----------------------------------------
-    from krx_gold_info.data import get_krx_gold_info
-    from krx_gold_info.csv.update import append_krx_gold_history
-    
     KRX_GOLD_CSV_PATH = Path("krx_gold_info/csv/price_history.csv")
     
     krx_gold_df = pd.read_csv(
