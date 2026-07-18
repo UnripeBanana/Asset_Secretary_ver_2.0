@@ -3,7 +3,7 @@ from notion.get_all_pages import get_all_pages
 from pathlib import Path
 import pandas as pd
 
-from utils.trading_day import is_trading_day
+from utils.is_trade_day import is_trading_day
 
 from domestic_stock_info.read import get_ticker
 from domestic_stock_info.data import get_domestic_stock_info
