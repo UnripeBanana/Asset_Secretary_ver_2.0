@@ -106,7 +106,7 @@ ax.yaxis.set_label_position("right")
 
 # 오른쪽 spine만 표시
 ax.spines["right"].set_visible(True)
-
+"""
 ax.tick_params(
     axis="y",
     left=False,
@@ -123,7 +123,7 @@ ax.tick_params(
 )
 
 ax.spines["right"].set_color("#cccccc")
-"""
+
 ax.set_xlim(-1, len(stock) + 4)
 
 # 여백 조금 주기
