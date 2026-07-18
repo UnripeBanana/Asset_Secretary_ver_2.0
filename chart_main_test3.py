@@ -106,7 +106,7 @@ ax.yaxis.set_label_position("right")
 
 # 오른쪽 spine만 표시
 ax.spines["right"].set_visible(True)
-"""
+
 ax.tick_params(
     axis="y",
     left=False,
@@ -114,17 +114,8 @@ ax.tick_params(
     right=True,
     labelright=True
 )
-"""
-ax.tick_params(
-    axis="y",
-    direction="out",
-    length=3,
-    colors="gray"
-)
 
-ax.spines["right"].set_color("#cccccc")
-
-ax.set_xlim(-1, len(stock) + 4)
+ax.set_xlim(-1, len(stock) + 6)
 
 # 여백 조금 주기
 price_min = stock["low"].min()
@@ -188,13 +179,14 @@ ax.text(
     fontsize=8,
     color="gray"
 )
-
+"""
 # -----------------------------
 # 현재가 표시
 # -----------------------------
 last_close = stock.iloc[-1]["close"]
 current_color = "#e53935" if last_close >= stock.iloc[-1]["open"] else "#1565c0"
 
+"""
 # 현재가 수평선
 ax.axhline(
     y=last_close,
@@ -203,6 +195,7 @@ ax.axhline(
     linewidth=1,
     alpha=0.6
 )
+"""
 
 # 현재가 라벨
 ax.text(
@@ -218,6 +211,37 @@ ax.text(
         facecolor=current_color,
         edgecolor="none"
     )
+)
+"""
+# -----------------------------
+# 현재가 표시 (네이버증권 스타일)
+# -----------------------------
+last_close = stock.iloc[-1]["close"]
+
+# 당일 상승/하락에 따라 색상 결정
+current_color = (
+    "#e53935"
+    if last_close >= stock.iloc[-1]["open"]
+    else "#1565c0"
+)
+
+ax.annotate(
+    f"{last_close:,}",
+    xy=(len(stock), last_close),             # 화살표 끝
+    xytext=(len(stock) + 4.2, last_close),   # 박스 위치
+    ha="left",
+    va="center",
+    fontsize=12,
+    fontweight="bold",
+    color="white",
+
+    bbox=dict(
+        boxstyle="larrow,pad=0.35",
+        fc=current_color,
+        ec=current_color
+    ),
+
+    annotation_clip=False
 )
 
 # -----------------------------
