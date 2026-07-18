@@ -74,10 +74,10 @@ for i, row in stock.iterrows():
 # -----------------------------
 # 이동평균선
 # -----------------------------
-ax.plot(x, stock["MA5"], color="orange", linewidth=1.2, label="MA5")
-ax.plot(x, stock["MA20"], color="red", linewidth=1.2, label="MA20")
-ax.plot(x, stock["MA60"], color="green", linewidth=1.2, label="MA60")
-ax.plot(x, stock["MA120"], color="blue", linewidth=1.2, label="MA120")
+ax.plot(x, stock["MA5"], color="orange", linewidth=1.2, label="-5")
+ax.plot(x, stock["MA20"], color="red", linewidth=1.2, label="-20")
+ax.plot(x, stock["MA60"], color="green", linewidth=1.2, label="-60")
+ax.plot(x, stock["MA120"], color="blue", linewidth=1.2, label="-120")
 
 ax.legend(loc="upper left")
 
