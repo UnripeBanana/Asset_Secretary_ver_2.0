@@ -2,9 +2,6 @@ from collections import deque
 
 def process_fifo(groups):
     updates = {}
-    #total_prices = 0
-    #total_bought_qty = 0
-#'삼성전자우': [{'page_id': '9076e5ae-e083-8217-a832-817a57e0487d', 'ticker': '삼성전자우', 'type': '매수', 'date': '2026-05-18', 'qty': 1, 'price': 175500, 'amount': 175500, 'profit_saved': False}, {'page_id': '2436e5ae-e083-82fb-84cc-015a2f17e27a', 'ticker': '삼성전자우', 'type': '매도', 'date': '2026-06-18', 'qty': 1, 'price': 231000, 'amount': 231000, 'profit_saved': False}, {'page_id': '7f86e5ae-e083-8338-9c6a-81093f738890', 'ticker': '삼성전자우', 'type': '매수', 'date': '2026-06-19', 'qty': 1, 'price': 219000, 'amount': 219000, 'profit_saved': False}]
     for ticker, trades in groups.items():
         queue = deque()
         realized_profit = 0
@@ -29,8 +26,6 @@ def process_fifo(groups):
                 })
                 updates[page_id]["remaining"] = trade["qty"]
                 updates[page_id]["profit"] = 0
-
-                print(queue)
 
             # 매도
             else:
