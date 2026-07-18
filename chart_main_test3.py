@@ -95,6 +95,35 @@ low_price = stock.loc[low_idx, "low"]
 # -----------------------------
 # 축 설정
 # -----------------------------
+
+# 위/오른쪽 테두리 제거
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+# y축을 오른쪽으로 이동
+ax.yaxis.tick_right()
+ax.yaxis.set_label_position("right")
+
+# 오른쪽 spine만 표시
+ax.spines["right"].set_visible(True)
+
+ax.tick_params(
+    axis="y",
+    left=False,
+    labelleft=False,
+    right=True,
+    labelright=True
+)
+"""
+ax.tick_params(
+    axis="y",
+    direction="out",
+    length=3,
+    colors="gray"
+)
+
+ax.spines["right"].set_color("#cccccc")
+"""
 ax.set_xlim(-1, len(stock) + 4)
 
 # 여백 조금 주기
