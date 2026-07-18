@@ -186,7 +186,6 @@ ax.text(
 last_close = stock.iloc[-1]["close"]
 current_color = "#e53935" if last_close >= stock.iloc[-1]["open"] else "#1565c0"
 
-"""
 # 현재가 수평선
 ax.axhline(
     y=last_close,
@@ -195,7 +194,6 @@ ax.axhline(
     linewidth=1,
     alpha=0.6
 )
-"""
 
 # 현재가 라벨
 ax.text(
