@@ -74,10 +74,10 @@ for i, row in stock.iterrows():
 # -----------------------------
 # 이동평균선
 # -----------------------------
-ax.plot(x, stock["MA5"], color="orange", linewidth=1.2, label="-5")
-ax.plot(x, stock["MA20"], color="red", linewidth=1.2, label="-20")
-ax.plot(x, stock["MA60"], color="green", linewidth=1.2, label="-60")
-ax.plot(x, stock["MA120"], color="blue", linewidth=1.2, label="-120")
+ax.plot(x, stock["MA5"], color="orange", linewidth=1.2, label="5")
+ax.plot(x, stock["MA20"], color="red", linewidth=1.2, label="20")
+ax.plot(x, stock["MA60"], color="green", linewidth=1.2, label="60")
+ax.plot(x, stock["MA120"], color="blue", linewidth=1.2, label="120")
 
 ax.legend(loc="upper left")
 
@@ -90,12 +90,12 @@ low_idx = stock["low"].idxmin()
 
 high_price = stock.loc[high_idx, "high"]
 low_price = stock.loc[low_idx, "low"]
-last_close = stock.iloc[-1]["close"]
+
 
 # -----------------------------
 # 축 설정
 # -----------------------------
-ax.set_xlim(-1, len(stock))
+ax.set_xlim(-1, len(stock) + 4)
 
 # 여백 조금 주기
 price_min = stock["low"].min()
@@ -158,6 +158,37 @@ ax.text(
     ha="left",
     fontsize=8,
     color="gray"
+)
+
+# -----------------------------
+# 현재가 표시
+# -----------------------------
+last_close = stock.iloc[-1]["close"]
+current_color = "#e53935" if last_close >= stock.iloc[-1]["open"] else "#1565c0"
+
+# 현재가 수평선
+ax.axhline(
+    y=last_close,
+    color="gray",
+    linestyle="--",
+    linewidth=1,
+    alpha=0.6
+)
+
+# 현재가 라벨
+ax.text(
+    len(stock) + 0.5,      # 오른쪽 여백에 표시
+    last_close,
+    f"{last_close:,}",
+    va="center",
+    ha="left",
+    fontsize=9,
+    color="white",
+    bbox=dict(
+        boxstyle="round,pad=0.25",
+        facecolor=current_color,
+        edgecolor="none"
+    )
 )
 
 # -----------------------------
