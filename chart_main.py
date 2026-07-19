@@ -17,6 +17,7 @@ from charts.axis import set_axis
 from charts.high_low import present_high_and_low
 from charts.current_price import present_current_price
 from notion.client import notion
+from notion.initialize_info_page import initialize_stock_page
 
 # 나중에는
 # make_chart 함수 하나, delete_chart 하나 update_chart 하나 이렇게 구성하는 것도 괜찮을 듯. 깔끔하게
@@ -64,6 +65,9 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
         dpi=300,
         bbox_inches="tight"
     )
+
+    # 노션 페이지 초기화 작업
+    initialize_stock_page(page["id"])
 
     # 노션에 있는 기존 이미지 삭제
     found = False
