@@ -1,4 +1,4 @@
-
+from notion.client import notion
 
 def initialize_stock_page(page_id):
 
