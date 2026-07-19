@@ -24,6 +24,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     if not ticker:
         continue
 
+    # 임시로 삼성 테스트 데이터만 사용
     if ticker != "005930":
         continue
 
@@ -68,49 +69,7 @@ high_price = stock.loc[high_idx, "high"]
 low_price = stock.loc[low_idx, "low"]
 
 
-# -----------------------------
-# 축 설정
-# -----------------------------
 
-# 위/오른쪽 테두리 제거
-ax.spines["top"].set_visible(False)
-ax.spines["right"].set_visible(False)
-
-# y축을 오른쪽으로 이동
-ax.yaxis.tick_right()
-ax.yaxis.set_label_position("right")
-
-# 오른쪽 spine만 표시
-ax.spines["right"].set_visible(True)
-
-ax.tick_params(
-    axis="y",
-    left=False,
-    labelleft=False,
-    right=True,
-    labelright=True
-)
-
-ax.set_xlim(-1, len(stock) + 6)
-
-# 여백 조금 주기
-price_min = stock["low"].min()
-price_max = stock["high"].max()
-
-margin = (price_max - price_min) * 0.05
-
-
-# y축을 0부터 보이게 설정
-ax.set_ylim(
-    bottom = price_min - margin,
-    top = price_max + margin
-)
-
-
-ax.set_ylim(
-    price_min - margin,
-    price_max + margin
-)
 
 # -----------------------------
 # 최고가 표시
