@@ -16,6 +16,7 @@ from charts.meanline import meanline
 from charts.axis import set_axis
 from charts.high_low import present_high_and_low
 from charts.current_price import present_current_price
+from notion.client import notion
 
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/test_data.csv")
 # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") 
