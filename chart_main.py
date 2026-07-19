@@ -24,7 +24,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     if not ticker:
         continue
 
-    print(page["properties"])
+    print(page["properties"]["종목"]["title"][0]["plain_text"])
 
     # CSV 파일 읽어오기
     stock = read_csv(DOMESTIC_STOCK_CSV_PATH, ticker)
