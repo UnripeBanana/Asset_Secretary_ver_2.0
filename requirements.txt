@@ -7,5 +7,5 @@ requests==2.32.3
 # 주식 거래일인지 아닌지 걸러주는 설정
 exchange-calendars
 
-numpy==...
-matplotlib==...
+numpy
+matplotlib
