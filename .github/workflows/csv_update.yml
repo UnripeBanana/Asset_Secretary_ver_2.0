@@ -3,10 +3,6 @@ name: Update CSV
 on:
   workflow_dispatch:
 
-  schedule:
-    # 평일(월~금) 16:10 KST = 07:10 UTC
-    - cron: "0 */6 * * 1-5"
-
 jobs:
   save-history:
     runs-on: ubuntu-latest
