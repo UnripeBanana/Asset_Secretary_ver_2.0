@@ -1,5 +1,6 @@
 from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
 from notion.get_all_pages import get_all_pages
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,14 +12,17 @@ from matplotlib.patches import Rectangle
 from charts.read_csv import read_csv
 from domestic_stock_info.read import get_ticker
 
+DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
+
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # 티커 데이터 추출
     ticker = get_ticker(page)
     if not ticker:
         continue
 
-# CSV 파일 읽어오기
-stock = read_csv(path, ticker)
+    # CSV 파일 읽어오기
+    stock = read_csv(DOMESTIC_STOCK_CSV_PATH, ticker)
+
 
 
 # -----------------------------
