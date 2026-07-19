@@ -37,7 +37,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     make_candle_chart(ax, stock)
 
     # 이동평균선
-    meanline(ax, stock)
+    meanline(ax, stock, x)
 
 
 
