@@ -24,6 +24,9 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     if not ticker:
         continue
 
+    if ticker != "005930":
+        continue
+
     # CSV 파일 읽어오기
     stock = read_csv(DOMESTIC_STOCK_CSV_PATH, ticker)
 
