@@ -13,7 +13,7 @@ from domestic_stock_info.read import get_ticker
 from charts.read_csv import read_csv
 from charts.candle_chart import make_candle_chart
 from charts.meanline import meanline
-from utils.day_log import 
+from utils.day_log import today_is
 
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")   
 # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") 
@@ -41,7 +41,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     
     # 저장
     plt.tight_layout()
-    date = "2026-07-14"
+    date = today_is()
     name = page["properties"]["종목"]["title"][0]["plain_text"]
     
     title = f"charts/image/{date}_{name}_{ticker}.png"
