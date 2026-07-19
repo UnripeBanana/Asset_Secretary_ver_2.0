@@ -65,4 +65,25 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
         bbox_inches="tight"
     )
 
+    # 노션 업로드
+    chart_url = (
+        "https://raw.githubusercontent.com/"
+        "UnripeBanana/Asset_Secretary_ver_2.0/main/"
+        f"charts/image/{name}_{ticker}.png"
+    )
 
+    notion.blocks.children.append(
+        block_id=page["properties"]["id"],
+        children=[
+            {
+                "object": "block",
+                "type": "image",
+                "image": {
+                    "type": "external",
+                    "external": {
+                        "url": chart_url
+                    }
+                }
+            }
+        ]
+    )
