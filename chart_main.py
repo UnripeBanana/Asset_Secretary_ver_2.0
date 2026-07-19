@@ -13,6 +13,7 @@ from domestic_stock_info.read import get_ticker
 from charts.read_csv import read_csv
 from charts.candle_chart import make_candle_chart
 from charts.meanline import meanline
+from charts.axis import set_axis
 
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/test_data.csv")
 # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") 
@@ -40,6 +41,9 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 
     # 이동평균선
     meanline(ax, stock, x)
+
+    # 축 설정
+    set_axis(ax, stock)
 
     
     # 저장
