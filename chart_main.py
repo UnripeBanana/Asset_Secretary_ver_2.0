@@ -71,6 +71,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 
     # 노션에 있는 기존 이미지 삭제
     found = False
+    heading_block_id = None
 
     blocks = notion.blocks.children.list(block_id=page["id"])
         
@@ -82,6 +83,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
             and block["heading_2"]["rich_text"][0]["plain_text"] == "3개월 차트"
         ):
             found = True
+            heading_block_id = block["id"]
             continue
     
         # 제목 바로 다음 image 삭제
@@ -98,6 +100,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 
     notion.blocks.children.append(
         block_id=page["id"],
+        after=heading_block_id,
         children=[
             {
                 "object": "block",
