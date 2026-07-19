@@ -13,6 +13,7 @@ from domestic_stock_info.read import get_ticker
 from charts.read_csv import read_csv
 from charts.candle_chart import make_candle_chart
 from charts.meanline import meanline
+from utils.day_log import 
 
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")   
 # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") 
@@ -23,8 +24,6 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     ticker = get_ticker(page)
     if not ticker:
         continue
-
-    print(page["properties"]["종목"]["title"][0]["plain_text"])
 
     # CSV 파일 읽어오기
     stock = read_csv(DOMESTIC_STOCK_CSV_PATH, ticker)
@@ -39,26 +38,25 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # 이동평균선
     meanline(ax, stock, x)
 
-
-
-
-
-"""
-    # -----------------------------
+    
     # 저장
-    # -----------------------------
     plt.tight_layout()
-    
     date = "2026-07-14"
-    name = "삼성전자"
+    name = page["properties"]["종목"]["title"][0]["plain_text"]
     
-    title = f"charts/{date}_{name}_{ticker}.png"
+    title = f"charts/image/{date}_{name}_{ticker}.png"
     
     plt.savefig(
         title,
         dpi=300,
         bbox_inches="tight"
     )
+
+
+
+
+"""
+
 # -----------------------------
 # 최고가 / 최저가
 # -----------------------------
