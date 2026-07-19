@@ -39,6 +39,22 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 
 
 
+    # -----------------------------
+    # 저장
+    # -----------------------------
+    plt.tight_layout()
+    
+    date = "2026-07-14"
+    name = "삼성전자"
+    
+    title = f"charts/{date}_{name}_{ticker}.png"
+    
+    plt.savefig(
+        title,
+        dpi=300,
+        bbox_inches="tight"
+    )
+
 """
 # -----------------------------
 # 최고가 / 최저가
@@ -239,22 +255,7 @@ fig.patch.set_facecolor("white")
 ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 
-# -----------------------------
-# 저장
-# -----------------------------
-plt.tight_layout()
 
-date = "2026-07-14"
-name = "삼성전자"
-ticker = "005930"
-
-title = f"charts/{date}_{name}_{ticker}.png"
-
-plt.savefig(
-    title,
-    dpi=300,
-    bbox_inches="tight"
-)
 
 plt.close()
 """
