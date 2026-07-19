@@ -31,7 +31,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 
 
 
-
+"""
 # -----------------------------
 # 이동평균선 계산
 # -----------------------------
@@ -133,13 +133,13 @@ price_max = stock["high"].max()
 
 margin = (price_max - price_min) * 0.05
 
-"""
+
 # y축을 0부터 보이게 설정
 ax.set_ylim(
     bottom = price_min - margin,
     top = price_max + margin
 )
-"""
+
 
 ax.set_ylim(
     price_min - margin,
@@ -189,7 +189,7 @@ ax.text(
     fontsize=8,
     color="gray"
 )
-"""
+
 # -----------------------------
 # 현재가 표시
 # -----------------------------
@@ -220,7 +220,7 @@ ax.text(
         edgecolor="none"
     )
 )
-"""
+
 # -----------------------------
 # 현재가 표시 (네이버증권 스타일)
 # -----------------------------
@@ -309,3 +309,4 @@ plt.savefig(
 )
 
 plt.close()
+"""
