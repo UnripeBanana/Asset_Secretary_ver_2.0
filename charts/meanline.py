@@ -1,4 +1,4 @@
-def meanline(ax, stock):
+def meanline(ax, stock, x):
     stock["MA5"] = stock["close"].rolling(5).mean()
     stock["MA20"] = stock["close"].rolling(20).mean()
     stock["MA60"] = stock["close"].rolling(60).mean()
