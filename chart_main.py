@@ -12,8 +12,7 @@ from matplotlib.patches import Rectangle
 from charts.read_csv import read_csv
 from domestic_stock_info.read import get_ticker
 
-DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")
-
+DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/test_data.csv")   # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv")
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # 티커 데이터 추출
     ticker = get_ticker(page)
