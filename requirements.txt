@@ -7,6 +7,3 @@ requests==2.32.3
 
 # 주식 거래일인지 아닌지 걸러주는 설정
 exchange-calendars
-
-# 차트 그리려고 추가함.
-mplfinance==0.12.10b0
