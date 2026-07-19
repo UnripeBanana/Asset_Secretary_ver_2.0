@@ -15,6 +15,7 @@ from charts.candle_chart import make_candle_chart
 from charts.meanline import meanline
 from charts.axis import set_axis
 from charts.high_low import present_high_and_low
+from charts.current_price import present_current_price
 
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/test_data.csv")
 # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") 
@@ -50,7 +51,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     present_high_and_low (ax, stock)
 
     # 현재가 표시
-
+    present_current_price(ax, stock)
     
     # 저장
     plt.tight_layout()
