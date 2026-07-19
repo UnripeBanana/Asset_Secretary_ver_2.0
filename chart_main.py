@@ -18,6 +18,9 @@ from charts.high_low import present_high_and_low
 from charts.current_price import present_current_price
 from notion.client import notion
 
+# 나중에는
+# make_chart 함수 하나, delete_chart 하나 update_chart 하나 이렇게 구성하는 것도 괜찮을 듯. 깔끔하게
+
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/test_data.csv")
 # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") 
 # 테스트용 경로 : Path("domestic_stock_info/csv/test_data.csv")
