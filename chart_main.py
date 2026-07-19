@@ -1,3 +1,5 @@
+from config import NOTION_DOMESTIC_STOCK_INFO_DB_ID
+from notion.get_all_pages import get_all_pages
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,20 +9,17 @@ from matplotlib.patches import Rectangle
 # 국내주식 차트 생성
 # -----------------------------
 from charts.read_csv import read_csv
+from domestic_stock_info.read import get_ticker
+
+for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
+    # 티커 데이터 추출
+    ticker = get_ticker(page)
+    if not ticker:
+        continue
+
 # CSV 파일 읽어오기
-
-
-
 stock = read_csv(path, ticker)
 
-df = pd.read_csv("domestic_stock_info/csv/test_data.csv", dtype={"ticker": str})
-
-ticker = "005930"
-
-stock = df[df["ticker"] == ticker].copy()
-
-stock["date"] = pd.to_datetime(stock["date"])
-stock = stock.sort_values("date").reset_index(drop=True)
 
 # -----------------------------
 # 이동평균선 계산
