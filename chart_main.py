@@ -11,7 +11,7 @@ from matplotlib.patches import Rectangle
 # -----------------------------
 from domestic_stock_info.read import get_ticker
 from charts.read_csv import read_csv
-from charts.candle_chart import 
+from charts.candle_chart import make_candle_chart
 
 DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")   # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") # 테스트용 경로 : Path("domestic_stock_info/csv/test_data.csv")
 for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
@@ -28,7 +28,7 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     x = np.arange(len(stock))
 
     # 캔들차트 생성
-    
+    make_candle_chart(ax, stock)
 
 
 
