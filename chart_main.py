@@ -22,6 +22,14 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     # CSV 파일 읽어오기
     stock = read_csv(DOMESTIC_STOCK_CSV_PATH, ticker)
 
+    # chart 사이즈 설정
+    fig, ax = plt.subplots(figsize=(15, 8))
+    x = np.arange(len(stock))
+
+    # 캔들차트 생성
+    
+
+
 
 
 # -----------------------------
@@ -32,18 +40,11 @@ stock["MA20"] = stock["close"].rolling(20).mean()
 stock["MA60"] = stock["close"].rolling(60).mean()
 stock["MA120"] = stock["close"].rolling(120).mean()
 
-# -----------------------------
-# Figure 생성
-# -----------------------------
-fig, ax = plt.subplots(figsize=(15, 8))
-
-x = np.arange(len(stock))
-
-candle_width = 0.7
 
 # -----------------------------
 # 캔들 그리기
 # -----------------------------
+candle_width = 0.7
 for i, row in stock.iterrows():
     open_price = row["open"]
     high_price = row["high"]
