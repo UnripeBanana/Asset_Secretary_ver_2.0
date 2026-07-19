@@ -37,7 +37,8 @@ def make_candle_chart(stock):
         # 시가 = 종가인 경우도 보이도록
         if body_height == 0:
             body_height = 1
-    
+
+        candle_width = 0.7
         rect = Rectangle(
             (i - candle_width / 2, body_bottom),
             candle_width,
