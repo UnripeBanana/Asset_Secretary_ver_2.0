@@ -7,7 +7,5 @@ def read_csv(path, ticker):
     
     stock["date"] = pd.to_datetime(stock["date"])
     stock = stock.sort_values("date").reset_index(drop=True)
-
-    print(stock)
     
     return stock  
