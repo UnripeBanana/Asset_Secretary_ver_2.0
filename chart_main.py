@@ -24,6 +24,8 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
     if not ticker:
         continue
 
+    print(page["properties"])
+
     # CSV 파일 읽어오기
     stock = read_csv(DOMESTIC_STOCK_CSV_PATH, ticker)
 
@@ -39,6 +41,9 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
 
 
 
+
+
+"""
     # -----------------------------
     # 저장
     # -----------------------------
@@ -54,8 +59,6 @@ for page in get_all_pages(NOTION_DOMESTIC_STOCK_INFO_DB_ID):
         dpi=300,
         bbox_inches="tight"
     )
-
-"""
 # -----------------------------
 # 최고가 / 최저가
 # -----------------------------
