@@ -182,30 +182,6 @@ ax.annotate(
 )
 
 # -----------------------------
-# 날짜 표시 (매주 첫 거래일)
-# -----------------------------
-tick_positions = []
-tick_labels = []
-
-last_week = None
-
-for i, row in stock.iterrows():
-
-    week = row["date"].isocalendar().week
-
-    if week != last_week:
-        tick_positions.append(i)
-        tick_labels.append(row["date"].strftime("%m-%d"))
-        last_week = week
-
-ax.set_xticks(tick_positions)
-ax.set_xticklabels(
-    tick_labels,
-    rotation=0,
-    fontsize=9
-)
-
-# -----------------------------
 # 스타일
 # -----------------------------
 ax.grid(
