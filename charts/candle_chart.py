@@ -3,6 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
+# stock
+
+date  ticker  name    open  ...     low   close    volume        amount
+0 2026-07-13  005930  삼성전자  285000  ...  253000  254500  31882652  8.455131e+12
+1 2026-07-14  005930  삼성전자  255000  ...  247000  263000  39989493  1.039033e+13
+
+[2 rows x 9 columns]
+
 def make_candle_chart(stock):
     for i, row in stock.iterrows():
         open_price = row["open"]
