@@ -14,7 +14,7 @@ from charts.read_csv import read_csv
 from charts.candle_chart import make_candle_chart
 from charts.meanline import meanline
 
-DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/price_history.csv")   
+DOMESTIC_STOCK_CSV_PATH = Path("domestic_stock_info/csv/test_data.csv")
 # 실제 데이터 경로 : Path("domestic_stock_info/csv/price_history.csv") 
 # 테스트용 경로 : Path("domestic_stock_info/csv/test_data.csv")
 
